@@ -82,8 +82,6 @@ export interface Project {
   slug: string
   title: string
   category: string
-  /** Optional context, e.g. "Course project". */
-  context?: string
   status: ProjectStatus
   /** Three-to-six words on what the project demonstrates, shown in the project index. */
   takeaway: string
@@ -121,8 +119,6 @@ export interface Experience {
 export interface AiExperience {
   summary: string
   tools: { name: string; use: string }[]
-  /** Optional note about how AI was used on this site. */
-  siteNote?: string
 }
 
 export interface Education {

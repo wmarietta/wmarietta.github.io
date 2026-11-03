@@ -1,13 +1,12 @@
 import type { AiExperience } from './types'
 
-/** Compact AI-tools panel shown at the end of the Skills section. */
+/** Compact AI-assisted development panel shown at the end of the Skills section. */
 export const aiExperience: AiExperience = {
   summary:
-    'I use AI tools daily for development and everyday work, and I review, test, and understand anything they produce before relying on it.',
+    'Experienced in AI-assisted development workflows. I integrate AI tools into my development process for codebase exploration, implementation planning, debugging, refactoring, and code review. I use these tools to accelerate development while maintaining ownership of technical decisions, architectural choices, and the quality of the final implementation.',
   tools: [
-    { name: 'Claude Code', use: 'Codebase-wide changes, refactoring, and debugging' },
-    { name: 'Claude', use: 'Design discussions and code review' },
-    { name: 'ChatGPT', use: 'Explanations, documentation, and study' },
+    { name: 'Claude Code', use: 'Codebase exploration, refactoring, and debugging' },
+    { name: 'Claude', use: 'Implementation planning and code review' },
+    { name: 'ChatGPT', use: 'Technical research and documentation' },
   ],
-  siteNote: 'This site was built with Claude Code from a brief I wrote, then reviewed and edited by me.',
 }

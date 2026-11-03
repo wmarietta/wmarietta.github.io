@@ -3,7 +3,7 @@ import styles from './AiPanel.module.css'
 
 /** Compact note on AI-assisted development, shown at the end of Skills. */
 export function AiPanel() {
-  const { summary, tools, siteNote } = aiExperience
+  const { summary, tools } = aiExperience
   return (
     <aside className={`${styles.panel} reveal`} aria-labelledby="ai-panel-heading">
       <div className={styles.intro}>
@@ -20,7 +20,6 @@ export function AiPanel() {
           </div>
         ))}
       </dl>
-      {siteNote && <p className={styles.note}>{siteNote}</p>}
     </aside>
   )
 }

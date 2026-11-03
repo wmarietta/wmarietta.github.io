@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react'
-import { coreSkills, projectsUsing, skillGroups } from '../../content'
+import { coreSkills, projectsUsing, skillGroups, skillsIntro } from '../../content'
 import { Section } from '../layout/Section'
 import { AiPanel } from './AiPanel'
 import styles from './Skills.module.css'
@@ -15,7 +15,7 @@ export function Skills() {
           The tools I reach for, <em>and where I’ve used them.</em>
         </>
       }
-      intro="My strongest area is the TypeScript, React, Node.js, Express, and MySQL stack. I’m also comfortable in several other languages from coursework and projects."
+      intro={skillsIntro}
     >
       <h3 className={`${styles.label} reveal`}>Core stack</h3>
       <ul className={styles.core}>

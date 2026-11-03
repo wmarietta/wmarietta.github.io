@@ -1,7 +1,7 @@
 import type { Education, Experience } from './types'
 
 export const experienceIntro =
-  'From 2016 to 2024 I taught programming and game development, first to classes of teenagers and later to teachers and working professionals. It’s where I learned to break technical problems down, explain them clearly, and lead a room.'
+  'From 2016 to 2024 I taught programming and game development, first to classes of teenagers and later to teachers and working professionals. I led classrooms, wrote curriculum, and trained new instructors, and breaking technical problems down and explaining them clearly became second nature.'
 
 export const experience: Experience[] = [
   {

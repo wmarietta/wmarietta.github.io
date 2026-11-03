@@ -45,19 +45,8 @@
   color: var(--paper-dim);
 }
 
-.note {
-  font-size: 0.8125rem;
-  color: var(--muted);
-}
-
 @media (min-width: 56em) {
   .panel {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  }
-
-  .note {
-    grid-column: 1 / -1;
-    padding-top: 1rem;
-    border-top: 1px solid var(--line);
   }
 }

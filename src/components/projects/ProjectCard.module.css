@@ -55,16 +55,6 @@
   color: var(--brass);
 }
 
-.context {
-  color: var(--muted);
-}
-
-.context::before {
-  content: '/';
-  margin-right: 0.75rem;
-  color: var(--faint);
-}
-
 .title {
   font-family: var(--font-display);
   font-size: var(--text-xl);

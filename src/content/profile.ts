@@ -7,9 +7,9 @@ export const profile: Profile = {
   title: 'Software Developer',
   location: 'Northern Virginia',
   email: 'wemarietta@gmail.com',
-  availability: 'Open to entry-level & junior software roles',
+  availability: 'Available for junior software engineering roles',
   heroIntro:
-    'Recent Computer Science graduate building full-stack web applications with React, TypeScript, Node.js, and MySQL. I’m most at home on the backend, working out how data, logic, and interfaces fit together.',
+    'I build full-stack web applications with React, TypeScript, Node.js, Express, and MySQL. My strongest work is on the backend: designing REST APIs, layering application logic, and modeling relational data.',
   links: {
     github: 'https://github.com/wmarietta',
     resume: '/resume/William-Marietta-Resume.pdf',
@@ -23,35 +23,35 @@ export const profile: Profile = {
   ],
   about: {
     /** Wrap a phrase in *asterisks* to emphasize it in the heading. */
-    heading: 'I want to understand how the *whole system* fits together.',
+    heading: 'I build *systems,* not just features.',
     paragraphs: [
-      'I graduated from George Mason University in May 2026 with a B.S. in Computer Science. Most of what I build is web software: React and TypeScript interfaces backed by Node.js and Express APIs and relational databases.',
-      'What keeps me interested is the structure underneath. How does a request move through an application? Where should a piece of logic live? Will this schema still make sense as features grow? Duelist Kingdom, my current project, is where I’m putting those questions into practice.',
-      'Before focusing on software development, I spent eight years teaching programming and game development to students, teachers, and professionals. Explaining technical ideas to people who are new to them shaped how I communicate, and how I think about writing code that other people need to read.',
+      'I’m a full-stack developer with a B.S. in Computer Science from George Mason University (May 2026). I build React and TypeScript interfaces, the Node.js and Express APIs behind them, and the relational databases that store their data.',
+      'I care about more than getting code to run. I want to understand how the entire application works, make deliberate architectural decisions, and build software that can grow without becoming difficult to maintain. I’m comfortable taking ownership of problems across the frontend, backend, and database, and explaining the reasoning behind my solutions.',
+      'Before focusing on software development, I spent eight years teaching programming and game development to students, teachers, and professionals. Explaining technical ideas to people who are new to them shaped how I communicate, and how I write code that other people need to read.',
     ],
     principles: [
       {
-        title: 'Understand the system',
-        body: 'I try to learn how components interact before changing one of them.',
+        title: 'Understand the whole system',
+        body: 'I trace problems across interfaces, APIs, and data models to find their root causes instead of treating symptoms.',
       },
       {
-        title: 'Structure for change',
-        body: 'Clear layers and boundaries make code easier to test, debug, and extend.',
+        title: 'Engineer for maintainability',
+        body: 'I make deliberate choices about architecture, data modeling, and separation of responsibilities so applications stay understandable and extensible.',
       },
       {
-        title: 'Explain it clearly',
-        body: 'Years of teaching made explaining technical decisions part of how I work.',
+        title: 'Communicate technical decisions',
+        body: 'Eight years of teaching programming and software development sharpened my ability to explain complex technical concepts, communicate design decisions, and collaborate effectively.',
       },
     ],
     glance: [
-      { label: 'Looking for', value: 'Entry-level & junior software developer roles' },
-      { label: 'Interests', value: 'Backend, full-stack, application architecture' },
+      { label: 'Looking for', value: 'Junior full-stack, backend & software engineering roles' },
+      { label: 'Focus', value: 'Backend, full-stack, application architecture' },
       { label: 'Degree', value: 'B.S. Computer Science, May 2026' },
       { label: 'Location', value: 'Northern Virginia' },
     ],
   },
   contact: {
-    heading: 'Looking for my *first software engineering role.*',
-    body: 'I’m interested in full-stack, backend, and general software engineering positions. If you’re hiring, or just want to talk about a project, email is the best way to reach me.',
+    heading: 'Ready to join *your engineering team.*',
+    body: 'I’m pursuing full-stack, backend, and general software engineering roles where I can take ownership of features across the stack. If you’re hiring, or want to talk through a project, email is the best way to reach me.',
   },
 }

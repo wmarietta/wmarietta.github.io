@@ -21,7 +21,6 @@ export function ProjectCard({ project, number }: { project: Project; number: num
               {String(number).padStart(2, '0')}
             </span>
             <span className={styles.category}>{project.category}</span>
-            {project.context && <span className={styles.context}>{project.context}</span>}
           </p>
 
           <h3 id={titleId} className={styles.title}>

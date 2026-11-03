@@ -11,16 +11,16 @@ export const projects: Project[] = [
     title: 'Duelist Kingdom',
     category: 'Full-stack web application',
     status: 'in-development',
-    takeaway: 'Full-stack architecture, auth, relational data',
+    takeaway: 'Layered REST API, authentication, MySQL design',
     summary:
-      'A full-stack web application for running a Yu-Gi-Oh! progression league. Accounts, card search, and deck building work today; player, match, and league-progression tracking are in development.',
+      'A full-stack web application I designed and built to run a Yu-Gi-Oh! progression league, backed by a layered REST API and a MySQL database. Authentication, card search, and deck management are implemented; player, match, and league-progression tracking are in development.',
     highlights: [
-      '**Layered REST API** in Node.js and Express: middleware, controllers, services, and repositories.',
-      '**Secure authentication** with Argon2 password hashing and persistent sessions.',
-      '**Relational MySQL schema** for users, decks, and league data.',
-      '**Typed React frontend** in TypeScript, consuming the API.',
-      '**External API integration** for trading-card search.',
-      '**Deck builder** with creation, editing, and import.',
+      '**Designed a layered REST API** in Node.js and Express, with middleware, controllers, services, and repositories each owning a single responsibility.',
+      '**Implemented secure authentication** with Argon2 password hashing, persistent sessions, and middleware-protected routes.',
+      '**Designed the MySQL schema** around users, sessions, and decks, with explicit relationships the league features build on.',
+      '**Built a typed React frontend** in TypeScript that consumes the API through typed request and response shapes.',
+      '**Integrated an external card API** to power trading-card search.',
+      '**Implemented deck management:** creating, editing, and importing decks.',
     ],
     stack: ['React', 'TypeScript', 'Node.js', 'Express', 'MySQL', 'REST APIs', 'Argon2', 'AWS Lightsail'],
     links: {},
@@ -38,10 +38,10 @@ export const projects: Project[] = [
     // ],
     caseStudy: {
       overview:
-        'A progression league needs a shared record of who is playing, what they’re playing, and how the season is going. Duelist Kingdom is my attempt to build that as a real application, with a typed frontend, a structured API, and a relational database, rather than a single-file prototype.',
+        'A progression league needs a shared record of who is playing, what they’re playing, and how the season is going. I built Duelist Kingdom to be that record, and I architected it as a real application rather than a single-file prototype: a typed frontend, a layered REST API, and a relational database.',
       architecture: {
         intro:
-          'Every request follows the same path through the backend. Keeping each layer narrow means routing, business logic, and SQL never get tangled together, and each piece can be reasoned about on its own.',
+          'Every request follows the same path through the backend. I kept each layer narrow so routing, business logic, and SQL never get tangled together, and each piece can be reasoned about and changed on its own.',
         layers: [
           {
             name: 'Client',
@@ -76,8 +76,7 @@ export const projects: Project[] = [
         ],
       },
       auth: {
-        intro:
-          'Authentication came first, because everything else in the league depends on knowing who a user is.',
+        intro: 'I built authentication first, because everything else in the league depends on knowing who a user is.',
         steps: [
           {
             title: 'Register',
@@ -99,7 +98,7 @@ export const projects: Project[] = [
       },
       data: {
         intro:
-          'The schema is built around a few core entities. Some are in use today; others are being added as the league features come together.',
+          'I designed the schema around a few core entities. The account and deck entities are in use today; the league entities are being added as those features come together.',
         entities: [
           { name: 'Users', body: 'Accounts with hashed credentials. Each user owns their decks.', status: 'completed' },
           { name: 'Sessions', body: 'Persistent sign-in state tied to a user.', status: 'completed' },
@@ -127,13 +126,13 @@ export const projects: Project[] = [
     title: 'Distributed MapReduce',
     category: 'Distributed systems',
     status: 'completed',
-    takeaway: 'Distributed systems and concurrency',
+    takeaway: 'Task scheduling, concurrency, distributed processing',
     summary:
-      'A MapReduce system in Go that splits a job into tasks and coordinates them across a pool of worker processes.',
+      'A distributed MapReduce system I implemented in Go, with a coordinator that schedules map and reduce tasks across a pool of concurrent worker processes.',
     highlights: [
-      '**Coordinator** that splits a job into map tasks and schedules reduce tasks once intermediate data is ready.',
-      '**Worker processes** that run map and reduce tasks in parallel over grouped keys.',
-      '**Task-state tracking** to coordinate many concurrent workers.',
+      '**Built the coordinator** that splits each job into map tasks and schedules reduce tasks once intermediate data is ready.',
+      '**Implemented worker processes** that execute map and reduce tasks in parallel over grouped keys.',
+      '**Tracked task state across concurrent workers** to coordinate the map and reduce phases of every job.',
     ],
     stack: ['Go', 'Concurrency', 'Distributed systems'],
     links: {},
@@ -141,18 +140,17 @@ export const projects: Project[] = [
   },
   {
     slug: 'android-fighting-game',
-    title: 'Turn-Based Fighting Game',
-    category: 'Native Android',
-    context: 'School project',
+    title: 'Battleframe',
+    category: 'Native Android Turn-Based Fighting Game',
     status: 'completed',
-    takeaway: 'OOP, rendering, and mobile development',
+    takeaway: 'Custom rendering, OOP architecture, Android',
     summary:
-      'A turn-based fighting game for Android, written in Java, with a hand-built animation system and data-driven game content.',
+      'A native Android fighting game I built in Java, with a custom animation engine, turn-based combat, character progression, and data-driven game content. I designed its rendering system and object-oriented architecture, separating combat mechanics, characters, abilities, and progression.',
     highlights: [
-      '**Custom render loop** on a SurfaceView running on its own thread, with idle, attack, special, and hurt animation states.',
-      '**Data-driven content:** abilities, items, and opponents loaded from JSON with Gson, with caching.',
-      '**Object-oriented game model** for characters, stats, abilities, items, and battles.',
-      '**Full game flow** across activities: character creation, battles, leveling up, and a shop.',
+      '**Built a custom render loop** on a SurfaceView running on its own thread, driving idle, attack, special, and hurt animation states.',
+      '**Made game content data-driven:** abilities, items, and opponents load from JSON with Gson, with caching.',
+      '**Designed an object-oriented game model** for characters, stats, abilities, items, and battles.',
+      '**Implemented the full game flow** across activities: character creation, turn-based battles, leveling up, and a shop.',
     ],
     stack: ['Java', 'Android', 'Android Studio', 'Gson'],
     links: { repo: 'https://github.com/wmarietta/AndroidFightingGame' },
@@ -176,16 +174,15 @@ export const projects: Project[] = [
     slug: 'radiowave',
     title: 'RadioWave',
     category: 'Full-stack web application',
-    context: 'Course project · Web App Development',
     status: 'completed',
-    takeaway: 'Server-side web app with sessions',
+    takeaway: 'Express backend, MongoDB, server-rendered views',
     summary:
-      'A business-facing internet radio management app for organizing songs, playlists, and broadcast time slots across DJ, producer, and host roles.',
+      'An internet radio station management app I built with Node.js, Express, and MongoDB for organizing songs, playlists, and broadcast time slots, with a dedicated module for each station role: DJ, producer, and host.',
     highlights: [
-      '**Express 5 server** with separate route modules for login and the manager dashboard.',
-      '**MongoDB data layer** with Mongoose models for users, songs, playlists, and time slots.',
-      '**Session-based auth** with express-session, persisted in MongoDB.',
-      '**Server-rendered EJS views** with shared layouts, plus client-side modules for each station role.',
+      '**Structured an Express 5 backend** with separate route modules for login and the manager dashboard.',
+      '**Built a client-side module for each station role** on top of server-rendered EJS views with shared layouts.',
+      '**Modeled the MongoDB data layer** with Mongoose schemas for users, songs, playlists, and time slots.',
+      '**Persisted session state in MongoDB** with express-session and connect-mongo, so a user’s selected time slot carries across requests.',
     ],
     stack: ['Node.js', 'Express', 'MongoDB', 'Mongoose', 'EJS'],
     links: { repo: 'https://github.com/wmarietta/RadioWave' },
@@ -201,13 +198,13 @@ export const projects: Project[] = [
     title: 'NASA Robotics Competition',
     category: 'Robotics · Team project',
     status: 'completed',
-    takeaway: 'Robotics, simulation, and teamwork',
+    takeaway: 'Autonomous robotics, ROS, simulation',
     summary:
-      'Worked alongside experienced software professionals to program NASA’s R5 Valkyrie humanoid robot to complete autonomous tasks in simulation.',
+      'On a team with experienced software professionals, I programmed autonomous task behavior for NASA’s R5 Valkyrie humanoid robot in Python and ROS, testing it in Gazebo simulation.',
     highlights: [
-      '**Autonomous task behavior** for the Valkyrie humanoid, written in Python with ROS.',
-      '**Simulation testing** and iteration in a Gazebo environment.',
-      '**Team collaboration** with experienced software professionals.',
+      '**Programmed autonomous task behavior** for the Valkyrie humanoid in Python with ROS.',
+      '**Tested and refined behavior in simulation** using a Gazebo environment.',
+      '**Collaborated with experienced software professionals** as part of the competition team.',
     ],
     stack: ['Python', 'ROS', 'Gazebo'],
     links: {},
@@ -219,7 +216,7 @@ export const projects: Project[] = [
 export const otherProjects: { title: string; description: string; stack: string[] }[] = [
   {
     title: 'Earthquake Search',
-    description: 'Native Android app for searching earthquakes and exploring the results on an interactive map.',
+    description: 'A native Android app I built for searching earthquakes, with an interactive map for exploring the results.',
     stack: ['Android', 'Maps'],
   },
 ]

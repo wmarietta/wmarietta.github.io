@@ -3,7 +3,7 @@ import type { Project } from './types'
 
 export { profile } from './profile'
 export { projects, otherProjects } from './projects'
-export { coreSkills, skillGroups } from './skills'
+export { coreSkills, skillGroups, skillsIntro } from './skills'
 export { experience, experienceIntro, education } from './experience'
 export { aiExperience } from './ai'
 export { navigation } from './navigation'
