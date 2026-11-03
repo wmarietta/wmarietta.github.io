@@ -9,7 +9,6 @@ export function Projects() {
   return (
     <Section
       id="work"
-      index="01"
       eyebrow="Selected work"
       title={
         <>

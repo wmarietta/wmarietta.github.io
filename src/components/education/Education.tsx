@@ -6,7 +6,6 @@ export function Education() {
   return (
     <Section
       id="education"
-      index="06"
       eyebrow="Education"
       title={
         <>

@@ -7,7 +7,6 @@ export function Skills() {
   return (
     <Section
       id="skills"
-      index="03"
       eyebrow="Technical skills"
       tone="raised"
       title={

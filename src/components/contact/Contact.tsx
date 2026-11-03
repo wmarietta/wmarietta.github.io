@@ -33,7 +33,7 @@ export function Contact() {
   }
 
   return (
-    <Section id="contact" index="07" eyebrow="Contact" tone="raised" title={emphasize(profile.contact.heading)}>
+    <Section id="contact" eyebrow="Contact" tone="raised" title={emphasize(profile.contact.heading)}>
       <div className={styles.layout}>
         <div className={`${styles.primary} reveal`}>
           <p className={styles.body}>{profile.contact.body}</p>

@@ -9,7 +9,7 @@ export function AiExperience() {
   const { heading, intro, tools, workflow, practices, siteNote } = aiExperience
 
   return (
-    <Section id="ai" index="04" eyebrow="AI tools" title={emphasize(heading)} intro={intro}>
+    <Section id="ai" eyebrow="AI tools" title={emphasize(heading)} intro={intro}>
       <div className={styles.tools}>
         {tools.map((tool, i) => (
           <article

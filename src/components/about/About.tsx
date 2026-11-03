@@ -7,7 +7,7 @@ import styles from './About.module.css'
 export function About() {
   const { about } = profile
   return (
-    <Section id="about" index="02" eyebrow="About" title={emphasize(about.heading)}>
+    <Section id="about" eyebrow="About" title={emphasize(about.heading)}>
       <div className={styles.layout}>
         <div className={`${styles.prose} reveal`}>
           {about.paragraphs.map((p, i) => (

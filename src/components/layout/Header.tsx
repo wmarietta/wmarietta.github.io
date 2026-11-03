@@ -49,7 +49,7 @@ export function Header() {
     }
 
     const onResize = () => {
-      if (window.matchMedia('(min-width: 60em)').matches) close(false)
+      if (window.matchMedia('(min-width: 64em)').matches) close(false)
     }
 
     document.addEventListener('keydown', onKeyDown)
