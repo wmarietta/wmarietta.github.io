@@ -1,0 +1,179 @@
+.layout {
+  display: grid;
+  gap: clamp(2.5rem, 2rem + 2vw, 4rem);
+  align-items: end;
+}
+
+.body {
+  max-width: 36rem;
+  font-size: var(--text-lg);
+  color: var(--paper-dim);
+}
+
+/* Email ------------------------------------------------------------------- */
+
+.emailBlock {
+  margin-top: clamp(2rem, 1.5rem + 2vw, 3rem);
+}
+
+.emailLabel {
+  margin-bottom: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.email {
+  display: inline-block;
+  max-width: 100%;
+  font-family: var(--font-display);
+  font-size: clamp(1.625rem, 0.9rem + 3.4vw, 3.5rem);
+  font-weight: 340;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+  background-image: linear-gradient(var(--brass), var(--brass));
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  padding-bottom: 0.1em;
+  transition:
+    background-size 0.6s var(--ease-out),
+    color 0.3s var(--ease-out);
+}
+
+.email:hover {
+  background-size: 100% 1px;
+  color: var(--brass-bright);
+}
+
+.emailActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.send,
+.copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0 1.125rem;
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition:
+    background-color 0.25s var(--ease-out),
+    border-color 0.25s var(--ease-out),
+    color 0.25s var(--ease-out);
+}
+
+.send {
+  background: var(--paper);
+  color: var(--ink-950);
+}
+
+.send:hover {
+  background: var(--brass-bright);
+}
+
+.copy {
+  border: 1px solid var(--line-strong);
+  color: var(--paper);
+}
+
+.copy:hover {
+  border-color: var(--line-brass);
+  background: var(--brass-wash);
+}
+
+.copy[data-state='copied'] {
+  border-color: rgba(147, 183, 156, 0.5);
+  color: var(--sage);
+}
+
+/* Links ------------------------------------------------------------------- */
+
+.links {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.linkCard {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.125rem 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--ink-950);
+  transition:
+    border-color 0.3s var(--ease-out),
+    background-color 0.3s var(--ease-out);
+}
+
+.linkCard:hover {
+  border-color: var(--line-brass);
+  background: var(--ink-850);
+}
+
+.linkIcon {
+  color: var(--paper-dim);
+}
+
+.linkText {
+  display: grid;
+  flex: 1;
+  line-height: 1.35;
+}
+
+.linkLabel {
+  font-weight: 550;
+}
+
+.linkDetail {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+.linkArrow {
+  color: var(--muted);
+  transition:
+    transform 0.3s var(--ease-out),
+    color 0.3s var(--ease-out);
+}
+
+.linkCard:hover .linkArrow {
+  transform: translate(3px, -3px);
+  color: var(--brass);
+}
+
+.location {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 0.25rem 0;
+  font-size: 0.9375rem;
+  color: var(--paper-dim);
+}
+
+.locationLabel {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: 0.2em;
+}
+
+@media (min-width: 60em) {
+  .layout {
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    gap: 5rem;
+  }
+}

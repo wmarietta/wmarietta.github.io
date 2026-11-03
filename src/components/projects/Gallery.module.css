@@ -1,0 +1,36 @@
+.gallery {
+  border-top: 1px solid var(--line);
+  padding-block: 1.5rem;
+}
+
+.strip {
+  display: flex;
+  gap: 1rem;
+  padding-inline: clamp(1.25rem, 1rem + 1.5vw, 2.5rem);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: clamp(1.25rem, 1rem + 1.5vw, 2.5rem);
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
+}
+
+.item {
+  flex: 0 0 min(85%, 36rem);
+  scroll-snap-align: start;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--ink-850);
+}
+
+.caption {
+  margin-top: 0.625rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}

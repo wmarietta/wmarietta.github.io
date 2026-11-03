@@ -1,0 +1,161 @@
+/* Timeline overview ------------------------------------------------------- */
+
+.timeline {
+  margin-bottom: clamp(3rem, 2rem + 3vw, 4.5rem);
+  padding: 1.5rem clamp(1rem, 0.5rem + 2vw, 2rem) 2.75rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--ink-900);
+}
+
+.bars {
+  position: relative;
+  display: grid;
+  gap: 0.625rem;
+  margin-bottom: 1.25rem;
+}
+
+.bar {
+  position: relative;
+  height: 2.25rem;
+  margin-left: calc(var(--start) * 100%);
+  width: calc(var(--length) * 100%);
+  border: 1px solid var(--line-brass);
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--brass-wash), rgba(214, 162, 78, 0.04));
+  transform-origin: left;
+}
+
+.bar:nth-child(2) {
+  border-color: rgba(127, 157, 184, 0.45);
+  background: linear-gradient(90deg, var(--steel-wash), rgba(127, 157, 184, 0.03));
+}
+
+.barLabel {
+  position: absolute;
+  inset: 0 0.75rem;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  font-size: 0.8125rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--paper);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :global(.js) .timeline .bar {
+    transform: scaleX(0);
+    transition: transform 1.2s var(--ease-out);
+    transition-delay: calc(0.25s + var(--i) * 0.15s);
+  }
+
+  :global(.js) .timeline:global(.is-visible) .bar {
+    transform: none;
+  }
+}
+
+.ruler {
+  position: relative;
+  height: 1px;
+  background: var(--line-strong);
+}
+
+.tick {
+  position: absolute;
+  left: calc(var(--pos) * 100%);
+  top: 0;
+  width: 1px;
+  height: 6px;
+  background: var(--line-strong);
+}
+
+.tickLabel {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--muted);
+}
+
+@media (max-width: 30em) {
+  .tick:nth-child(even) .tickLabel {
+    display: none;
+  }
+}
+
+/* Entries ----------------------------------------------------------------- */
+
+.list {
+  border-top: 1px solid var(--line-strong);
+}
+
+.entry {
+  display: grid;
+  gap: 1rem;
+  padding-block: clamp(2rem, 1.5rem + 2vw, 3rem);
+  border-bottom: 1px solid var(--line);
+}
+
+.years {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  color: var(--brass);
+}
+
+.org {
+  margin-top: 0.25rem;
+  font-size: 0.9875rem;
+  color: var(--paper-dim);
+}
+
+.role {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 360;
+  letter-spacing: -0.025em;
+}
+
+.summary {
+  margin-top: 0.5rem;
+  color: var(--muted);
+}
+
+.points {
+  display: grid;
+  gap: 0.625rem;
+  margin-block: 1.5rem 1.75rem;
+  max-width: 44rem;
+  color: var(--paper-dim);
+}
+
+.points li {
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.points li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.75em;
+  width: 0.5rem;
+  height: 1px;
+  background: var(--brass);
+}
+
+@media (min-width: 56em) {
+  .entry {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2.2fr);
+    gap: 3rem;
+  }
+
+  .when {
+    position: sticky;
+    top: calc(var(--header-height) + 2rem);
+    align-self: start;
+  }
+}

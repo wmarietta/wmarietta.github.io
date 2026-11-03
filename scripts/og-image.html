@@ -1,0 +1,50 @@
+<!doctype html>
+<!-- Source for public/og-image.png. Open in a browser at 1200x630 and screenshot, or edit text and re-capture. -->
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+  @font-face { font-family: F; src: url('../node_modules/@fontsource-variable/fraunces/files/fraunces-latin-opsz-normal.woff2'); font-weight: 100 900; }
+  @font-face { font-family: F; font-style: italic; src: url('../node_modules/@fontsource-variable/fraunces/files/fraunces-latin-opsz-italic.woff2'); font-weight: 100 900; }
+  @font-face { font-family: G; src: url('../node_modules/@fontsource-variable/geist/files/geist-latin-wght-normal.woff2'); font-weight: 100 900; }
+  @font-face { font-family: M; src: url('../node_modules/@fontsource-variable/geist-mono/files/geist-mono-latin-wght-normal.woff2'); font-weight: 100 900; }
+  * { margin: 0; box-sizing: border-box; }
+  body { width: 1200px; height: 630px; background: #0b0e13; color: #ece6da; font-family: G; overflow: hidden; position: relative; }
+  .grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(236,230,218,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(236,230,218,.07) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 55% 75% at 78% 50%, #000, transparent 75%); }
+  .frame { position: absolute; inset: 36px; border: 1px solid rgba(236,230,218,.1); border-radius: 22px; }
+  .copy { position: absolute; left: 88px; top: 92px; }
+  .eyebrow { font-family: M; font-size: 17px; letter-spacing: .16em; text-transform: uppercase; display: flex; gap: 16px; align-items: center; }
+  .eyebrow b { font-weight: 400; color: #e8b866; }
+  .eyebrow i { width: 36px; height: 1px; background: #d6a24e; display: block; }
+  h1 { font-family: F; font-variation-settings: 'opsz' 144; font-weight: 330; font-size: 132px; line-height: .92; letter-spacing: -.045em; margin-top: 40px; }
+  h1 em { font-weight: 300; }
+  .foot { position: absolute; left: 88px; bottom: 84px; font-size: 22px; color: #c2bcb0; display: flex; gap: 14px; align-items: center; }
+  .dot { width: 9px; height: 9px; border-radius: 50%; background: #93b79c; }
+  .stack { position: absolute; right: 88px; top: 100px; width: 330px; }
+  .layer { position: relative; display: flex; justify-content: space-between; align-items: center; height: 52px; margin-left: 40px; margin-bottom: 18px; padding: 0 18px; border: 1px solid rgba(236,230,218,.16); border-radius: 10px; background: #131821; font-size: 18px; font-weight: 520; }
+  .layer span { font-family: M; font-size: 12px; font-weight: 400; color: #8d939c; letter-spacing: .04em; }
+  .layer::before { content: ''; position: absolute; left: -36px; top: 50%; width: 9px; height: 9px; margin-top: -5px; border-radius: 50%; border: 1.5px solid #7f9db8; background: #0b0e13; }
+  .layer.lit { border-color: #d6a24e; background: #1d1b17; }
+  .layer.lit::before { background: #d6a24e; border-color: #d6a24e; }
+  .wire { position: absolute; left: 4px; top: 26px; bottom: 44px; width: 1px; background: rgba(236,230,218,.16); }
+</style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="frame"></div>
+  <div class="copy">
+    <p class="eyebrow">Software Developer <i></i><b>Full-stack &amp; Backend</b></p>
+    <h1>William<br /><em>Marietta</em></h1>
+  </div>
+  <p class="foot"><span class="dot"></span>B.S. Computer Science · George Mason University · 2026</p>
+  <div class="stack">
+    <div class="wire"></div>
+    <div class="layer">Client <span>React · TS</span></div>
+    <div class="layer">Middleware <span>Sessions · auth</span></div>
+    <div class="layer">Controllers <span>HTTP</span></div>
+    <div class="layer lit">Services <span>App logic</span></div>
+    <div class="layer">Repositories <span>Data access</span></div>
+    <div class="layer">MySQL <span>Relational</span></div>
+  </div>
+</body>
+</html>

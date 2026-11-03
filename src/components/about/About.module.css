@@ -1,0 +1,139 @@
+.layout {
+  display: grid;
+  gap: clamp(2.5rem, 2rem + 2vw, 4rem);
+  align-items: start;
+}
+
+.prose {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 40rem;
+  font-size: var(--text-lg);
+  line-height: 1.7;
+  color: var(--paper-dim);
+}
+
+.prose .first {
+  color: var(--paper);
+}
+
+/* At a glance ------------------------------------------------------------- */
+
+.glance {
+  padding: 1.5rem clamp(1.25rem, 1rem + 1vw, 1.75rem) 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--ink-900);
+}
+
+.glanceTitle {
+  margin-bottom: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+
+.glanceRow {
+  display: grid;
+  gap: 0.125rem;
+  padding-block: 0.875rem;
+  border-top: 1px solid var(--line);
+}
+
+.glanceRow dt {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.glanceRow dd {
+  font-size: 0.9875rem;
+  line-height: 1.45;
+}
+
+/* Principles -------------------------------------------------------------- */
+
+.principlesWrap {
+  margin-top: clamp(3.5rem, 2.5rem + 4vw, 6rem);
+}
+
+.principlesTitle {
+  margin-bottom: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.principles {
+  display: grid;
+  border-top: 1px solid var(--line-strong);
+}
+
+.principle {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 0.25rem 1rem;
+  padding-block: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.principleNo {
+  grid-row: span 2;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--brass);
+  padding-top: 0.35rem;
+}
+
+.principleTitle {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+.principleBody {
+  color: var(--paper-dim);
+  font-size: 0.9875rem;
+}
+
+@media (min-width: 56em) {
+  .layout {
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: clamp(3rem, 6vw, 7rem);
+  }
+
+  .glance {
+    position: sticky;
+    top: calc(var(--header-height) + 1.5rem);
+  }
+
+  .principles {
+    grid-template-columns: repeat(3, 1fr);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .principle {
+    grid-template-columns: 1fr;
+    align-content: start;
+    gap: 0.5rem;
+    padding: 1.75rem 2rem 2rem 0;
+    border-bottom: 0;
+  }
+
+  .principle + .principle {
+    padding-left: 2rem;
+    border-left: 1px solid var(--line);
+  }
+
+  .principleNo {
+    grid-row: auto;
+    margin-bottom: 1.5rem;
+  }
+}

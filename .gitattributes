@@ -1,0 +1,6 @@
+# Normalize line endings so Windows checkouts and the Linux CI runner agree.
+* text=auto eol=lf
+
+*.pdf binary
+*.png binary
+*.woff2 binary

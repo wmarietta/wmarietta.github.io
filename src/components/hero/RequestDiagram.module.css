@@ -1,0 +1,273 @@
+.diagram {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* Type ------------------------------------------------------------------- */
+
+.figLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  fill: var(--muted);
+}
+
+.name {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 520;
+  letter-spacing: -0.01em;
+  fill: var(--paper);
+}
+
+.index {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  fill: var(--faint);
+}
+
+.detail {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.02em;
+  fill: var(--muted);
+}
+
+.gapLabel {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  fill: var(--faint);
+}
+
+.extName {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 500;
+  fill: var(--paper-dim);
+}
+
+.extDetail {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.16em;
+  fill: var(--faint);
+}
+
+@media (max-width: 40em) {
+  .figLabel {
+    font-size: 11px;
+  }
+  .name {
+    font-size: 17px;
+  }
+  .index {
+    font-size: 11px;
+  }
+  .detail {
+    font-size: 12px;
+  }
+  .gapLabel {
+    font-size: 10px;
+  }
+  .extName {
+    font-size: 13.5px;
+  }
+  .extDetail {
+    font-size: 9.5px;
+  }
+}
+
+/* Shapes ----------------------------------------------------------------- */
+
+.wire {
+  stroke: var(--line-strong);
+  stroke-width: 1;
+}
+
+.stub {
+  stroke: var(--line-strong);
+  stroke-width: 1;
+}
+
+.node {
+  fill: var(--ink-950);
+  stroke: var(--steel);
+  stroke-width: 1.25;
+}
+
+.plate {
+  fill: var(--ink-850);
+  stroke: var(--line-strong);
+  stroke-width: 1;
+}
+
+.dashed {
+  stroke: var(--steel);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+  opacity: 0.7;
+}
+
+.extPlate {
+  fill: transparent;
+  stroke: var(--steel);
+  stroke-opacity: 0.5;
+  stroke-width: 1;
+  stroke-dasharray: 4 3;
+}
+
+.halo {
+  fill: var(--brass);
+  opacity: 0.18;
+}
+
+.dot {
+  fill: var(--brass);
+}
+
+/* Motion -----------------------------------------------------------------
+   8s loop: the request steps down through each layer (pausing briefly at
+   each one), rests at the database, then the response returns in steel. */
+
+@media (prefers-reduced-motion: no-preference) {
+  .packet {
+    animation: travel 8s linear infinite;
+  }
+
+  .packet .dot,
+  .packet .halo {
+    animation: tint 8s steps(1, end) infinite;
+  }
+
+  .plate {
+    animation: lit 8s var(--ease-out) infinite;
+    animation-delay: calc(var(--i) * 0.56s);
+  }
+
+  .external .extPlate,
+  .external .dashed {
+    animation: lit-ext 8s var(--ease-out) infinite;
+    animation-delay: calc(var(--i) * 0.56s + 0.16s);
+  }
+
+  :global(.js) .row,
+  :global(.js) .external {
+    animation: plate-in 0.9s var(--ease-out) both;
+    animation-delay: calc(0.5s + var(--i) * 0.08s);
+  }
+
+  :global(.js) .packet {
+    animation-delay: 1.4s;
+  }
+  :global(.js) .packet .dot,
+  :global(.js) .packet .halo {
+    animation-delay: 1.4s;
+  }
+  :global(.js) .plate {
+    animation-delay: calc(1.4s + var(--i) * 0.56s);
+  }
+  :global(.js) .external .extPlate,
+  :global(.js) .external .dashed {
+    animation-delay: calc(1.56s + var(--i) * 0.56s);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .packet {
+    display: none;
+  }
+}
+
+@keyframes travel {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  3% {
+    opacity: 1;
+  }
+  6% {
+    transform: translateY(0);
+  }
+  11%,
+  13% {
+    transform: translateY(84px);
+  }
+  18%,
+  20% {
+    transform: translateY(168px);
+  }
+  25%,
+  27% {
+    transform: translateY(252px);
+  }
+  32%,
+  34% {
+    transform: translateY(336px);
+  }
+  39%,
+  50% {
+    transform: translateY(420px);
+  }
+  80% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  88%,
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+@keyframes tint {
+  0% {
+    fill: var(--brass);
+  }
+  50% {
+    fill: var(--steel);
+  }
+}
+
+@keyframes lit {
+  0%,
+  100% {
+    stroke: var(--line-strong);
+    fill: var(--ink-850);
+  }
+  4%,
+  9% {
+    stroke: var(--brass);
+    fill: #1d1b17;
+  }
+  16% {
+    stroke: var(--line-strong);
+    fill: var(--ink-850);
+  }
+}
+
+@keyframes lit-ext {
+  0%,
+  100% {
+    stroke: var(--steel);
+    opacity: 0.6;
+  }
+  4%,
+  9% {
+    stroke: var(--brass);
+    opacity: 1;
+  }
+  16% {
+    stroke: var(--steel);
+    opacity: 0.6;
+  }
+}
+
+@keyframes plate-in {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+}

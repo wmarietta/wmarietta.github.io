@@ -1,0 +1,100 @@
+.grid {
+  display: grid;
+  gap: clamp(1rem, 0.75rem + 1vw, 1.5rem);
+  margin-top: clamp(1rem, 0.75rem + 1vw, 1.5rem);
+}
+
+@media (min-width: 56em) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* "Also built" + GitHub strip */
+
+.more {
+  display: grid;
+  gap: 1rem;
+  margin-top: clamp(1rem, 0.75rem + 1vw, 1.5rem);
+}
+
+.also {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1.25rem clamp(1.25rem, 1rem + 1vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+}
+
+.alsoLabel {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.alsoList li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  align-items: baseline;
+}
+
+.alsoTitle {
+  font-weight: 550;
+}
+
+.alsoDesc {
+  font-size: 0.9375rem;
+  color: var(--paper-dim);
+}
+
+.github {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem clamp(1.25rem, 1rem + 1vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--ink-900);
+  transition:
+    border-color 0.3s var(--ease-out),
+    background-color 0.3s var(--ease-out);
+}
+
+.github:hover {
+  border-color: var(--line-brass);
+  background: var(--ink-850);
+}
+
+.githubText {
+  display: grid;
+  flex: 1;
+  line-height: 1.35;
+}
+
+.githubLabel {
+  font-weight: 550;
+}
+
+.githubUrl {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+.githubArrow {
+  transition: transform 0.3s var(--ease-out);
+}
+
+.github:hover .githubArrow {
+  transform: translate(3px, -3px);
+  color: var(--brass);
+}
+
+@media (min-width: 56em) {
+  .more {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  }
+}
