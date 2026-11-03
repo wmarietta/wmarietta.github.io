@@ -16,8 +16,9 @@ export const profile: Profile = {
     linkedin: 'https://www.linkedin.com/in/wemarietta/',
   },
   heroFacts: [
+    { label: 'Featured project', value: 'Duelist Kingdom', href: '#duelist-kingdom' },
     { label: 'Focus', value: 'Full-stack · Backend' },
-    { label: 'Education', value: 'B.S. CS, George Mason ’26' },
+    { label: 'Education', value: 'B.S. CS, George Mason ’26 · 3.67 GPA' },
     { label: 'Based in', value: 'Northern Virginia' },
   ],
   about: {

@@ -1,5 +1,4 @@
 import { About } from './components/about/About'
-import { AiExperience } from './components/ai/AiExperience'
 import { Contact } from './components/contact/Contact'
 import { Education } from './components/education/Education'
 import { Experience } from './components/experience/Experience'
@@ -26,7 +25,6 @@ export function App() {
         <Projects />
         <About />
         <Skills />
-        <AiExperience />
         <Experience />
         <Education />
         <Contact />

@@ -19,7 +19,6 @@ export const skillGroups: SkillGroup[] = [
   { name: 'Backend', items: ['Node.js', 'Express', 'REST APIs', 'Authentication', 'Session management'] },
   { name: 'Data', items: ['MySQL', 'MongoDB', 'Relational database design'] },
   { name: 'Tools & platforms', items: ['Git', 'AWS Lightsail', 'Android Studio', 'Unity', 'Unreal Engine 5'] },
-  { name: 'AI tools', items: ['Claude', 'Claude Code', 'ChatGPT'] },
   {
     name: 'Foundations',
     items: [

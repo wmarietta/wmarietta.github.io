@@ -90,7 +90,16 @@ export function Hero() {
           {profile.heroFacts.map((fact) => (
             <div key={fact.label} className={styles.fact}>
               <dt>{fact.label}</dt>
-              <dd>{fact.value}</dd>
+              <dd>
+                {fact.href ? (
+                  <a href={fact.href} className={styles.factLink}>
+                    {fact.value}
+                    <Icon name="arrow-down" size={14} />
+                  </a>
+                ) : (
+                  fact.value
+                )}
+              </dd>
             </div>
           ))}
         </dl>

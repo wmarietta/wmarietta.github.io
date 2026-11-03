@@ -1,27 +1,30 @@
-import { cardProjects, featuredProject, otherProjects, profile } from '../../content'
+import { cardProjects, featuredProject, otherProjects, profile, projects } from '../../content'
 import { Section } from '../layout/Section'
 import { Icon } from '../ui/Icon'
 import { FeaturedProject } from './FeaturedProject'
 import { ProjectCard } from './ProjectCard'
+import { ProjectIndex } from './ProjectIndex'
 import styles from './Projects.module.css'
 
 export function Projects() {
   return (
     <Section
       id="work"
+      tight
       eyebrow="Selected work"
       title={
         <>
           Projects, from the interface <em>down to the database.</em>
         </>
       }
-      intro="A featured full-stack case study, followed by work in distributed systems, mobile, server-rendered web, and robotics."
     >
+      <ProjectIndex projects={projects} />
+
       {featuredProject && <FeaturedProject project={featuredProject} />}
 
       <div className={styles.grid}>
         {cardProjects.map((project, i) => (
-          <ProjectCard key={project.slug} project={project} index={i} />
+          <ProjectCard key={project.slug} project={project} number={i + (featuredProject ? 2 : 1)} />
         ))}
       </div>
 

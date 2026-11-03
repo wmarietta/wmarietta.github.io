@@ -27,7 +27,8 @@ export interface Profile {
     /** Add your LinkedIn URL here and it appears automatically everywhere. */
     linkedin?: string
   }
-  heroFacts: { label: string; value: string }[]
+  /** Quick facts under the hero. `href` makes the value a link (e.g. to a project). */
+  heroFacts: { label: string; value: string; href?: string }[]
   about: {
     heading: string
     paragraphs: string[]
@@ -84,12 +85,19 @@ export interface Project {
   /** Optional context, e.g. "Course project". */
   context?: string
   status: ProjectStatus
+  /** Three-to-six words on what the project demonstrates, shown in the project index. */
+  takeaway: string
   summary: string
-  /** Concrete engineering work: what *I* built. */
+  /**
+   * Concrete engineering work: what *I* built. Start each with the key
+   * accomplishment wrapped in **double asterisks** so it stands out.
+   */
   highlights: string[]
   stack: string[]
   /** Only real, working URLs. Leave empty rather than linking to nothing. */
-  links: { repo?: string; live?: string }
+  links: { repo?: string; live?: string; demo?: string }
+  /** Direct links to the source files that back up the highlights. */
+  evidence?: Link[]
   visual: ProjectVisual
   screenshots?: Screenshot[]
   caseStudy?: CaseStudy
@@ -110,21 +118,9 @@ export interface Experience {
   strengths: string[]
 }
 
-export interface AiTool {
-  name: string
-  maker: string
-  detail: string
-  work: string[]
-  everyday: string[]
-}
-
 export interface AiExperience {
-  /** Wrap a phrase in *asterisks* to emphasize it in the heading. */
-  heading: string
-  intro: string
-  tools: AiTool[]
-  workflow: { title: string; body: string }[]
-  practices: string[]
+  summary: string
+  tools: { name: string; use: string }[]
   /** Optional note about how AI was used on this site. */
   siteNote?: string
 }

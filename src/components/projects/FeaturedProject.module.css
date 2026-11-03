@@ -106,7 +106,16 @@
 }
 
 .stack {
-  margin-top: 2rem;
+  margin-top: 1.25rem;
+}
+
+.verify:not(:empty) {
+  margin-top: 1rem;
+}
+
+.highlights strong {
+  font-weight: 600;
+  color: var(--paper);
 }
 
 .actions {
@@ -154,21 +163,6 @@
   transform: rotate(135deg);
 }
 
-.link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  min-height: 3rem;
-  padding: 0 1.125rem;
-  border: 1px solid var(--line-strong);
-  border-radius: 999px;
-  font-size: 0.9375rem;
-  font-weight: 500;
-}
-
-.link:hover {
-  border-color: var(--line-brass);
-}
 
 .visualPane {
   position: relative;

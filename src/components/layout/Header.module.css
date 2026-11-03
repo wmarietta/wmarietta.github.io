@@ -295,7 +295,7 @@
   }
 }
 
-@media (min-width: 64em) {
+@media (min-width: 60em) {
   .nav {
     display: block;
   }

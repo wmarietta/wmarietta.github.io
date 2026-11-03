@@ -10,16 +10,18 @@ interface SectionProps {
   intro?: ReactNode
   aside?: ReactNode
   tone?: 'base' | 'raised'
+  /** Less space above the section, for the one that follows the hero. */
+  tight?: boolean
   children: ReactNode
 }
 
 /** Standard page section: numbered eyebrow, serif heading, optional intro. */
-export function Section({ id, eyebrow, title, intro, aside, tone = 'base', children }: SectionProps) {
+export function Section({ id, eyebrow, title, intro, aside, tone = 'base', tight = false, children }: SectionProps) {
   const headingId = `${id}-heading`
   const position = navigation.findIndex((item) => item.id === id)
   const index = position >= 0 ? String(position + 1).padStart(2, '0') : null
   return (
-    <section id={id} aria-labelledby={headingId} className={`${styles.section} ${styles[tone]}`}>
+    <section id={id} aria-labelledby={headingId} className={`${styles.section} ${styles[tone]} ${tight ? styles.tight : ''}`}>
       <div className="container">
         <header className={`${styles.header} reveal`}>
           <p className={styles.eyebrow}>

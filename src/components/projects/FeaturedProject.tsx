@@ -4,8 +4,10 @@ import type { Project } from '../../content/types'
 import { Icon } from '../ui/Icon'
 import { Status } from '../ui/Status'
 import { TagList } from '../ui/Tag'
+import { emphasize } from '../ui/emphasize'
 import { CaseStudy } from './CaseStudy'
 import { Gallery } from './Gallery'
+import { ProjectActions } from './ProjectActions'
 import { ProjectVisual } from './visuals/ProjectVisual'
 import styles from './FeaturedProject.module.css'
 
@@ -42,18 +44,17 @@ export function FeaturedProject({ project }: { project: Project }) {
             <h3 id={titleId} className={styles.title}>
               {project.title}
             </h3>
+            <div className={styles.stack}>
+              <TagList items={project.stack} label={`${project.title} technologies`} />
+            </div>
             <p className={styles.summary}>{project.summary}</p>
 
             <h4 className={styles.subhead}>What I built</h4>
             <ul className={styles.highlights}>
               {project.highlights.map((item) => (
-                <li key={item}>{item}</li>
+                <li key={item}>{emphasize(item)}</li>
               ))}
             </ul>
-
-            <div className={styles.stack}>
-              <TagList items={project.stack} label={`${project.title} technologies`} />
-            </div>
 
             <div className={styles.actions}>
               {project.caseStudy && (
@@ -70,20 +71,9 @@ export function FeaturedProject({ project }: { project: Project }) {
                   {open ? 'Hide the technical case study' : 'Read the technical case study'}
                 </button>
               )}
-              {project.links.repo && (
-                <a href={project.links.repo} className={styles.link} target="_blank" rel="noopener noreferrer">
-                  <Icon name="github" size={16} />
-                  Source code
-                  <span className="visually-hidden"> (opens in new tab)</span>
-                </a>
-              )}
-              {project.links.live && (
-                <a href={project.links.live} className={styles.link} target="_blank" rel="noopener noreferrer">
-                  Live site
-                  <Icon name="arrow-up-right" size={14} />
-                  <span className="visually-hidden"> (opens in new tab)</span>
-                </a>
-              )}
+            </div>
+            <div className={styles.verify}>
+              <ProjectActions project={project} size="lg" />
             </div>
           </div>
 

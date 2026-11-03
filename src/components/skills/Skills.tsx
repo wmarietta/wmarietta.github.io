@@ -1,6 +1,7 @@
 import type { CSSProperties } from 'react'
 import { coreSkills, projectsUsing, skillGroups } from '../../content'
 import { Section } from '../layout/Section'
+import { AiPanel } from './AiPanel'
 import styles from './Skills.module.css'
 
 export function Skills() {
@@ -61,6 +62,8 @@ export function Skills() {
           </div>
         ))}
       </dl>
+
+      <AiPanel />
     </Section>
   )
 }
