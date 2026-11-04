@@ -25,30 +25,6 @@ export const projects: Project[] = [
     links: {},
     visual: 'duelist',
     diagram: 'request-lifecycle',
-    screenshots: [
-      {
-        src: '/projects/duelist-kingdom/home.jpg',
-        alt: 'Duelist Kingdom home page: the crown-and-cards logo, a short description of progression seasons, and Search Cards and Sign In buttons.',
-        caption: 'Home page',
-        width: 1440,
-        height: 900,
-      },
-      {
-        src: '/projects/duelist-kingdom/sign-in.jpg',
-        alt: 'Duelist Kingdom sign-in form with username and password fields and a link to create an account.',
-        caption: 'Sign-in screen',
-        width: 1440,
-        height: 900,
-      },
-    ],
-    screenshotsNeeded: [
-      {
-        caption: 'Card search with results',
-        file: '/projects/duelist-kingdom/card-search.jpg',
-        note: 'Results need the API server and MySQL running.',
-      },
-      { caption: 'Profile page, signed in', file: '/projects/duelist-kingdom/profile.jpg' },
-    ],
     caseStudy: {
       overview:
         'A progression league needs a shared record of who is playing, what they’re playing, and how the season is going. I built Duelist Kingdom to be that record, and I architected it as a real application rather than a single-file prototype: a typed frontend, a layered REST API, and a relational database.',
@@ -191,15 +167,6 @@ export const projects: Project[] = [
     ],
     visual: 'fighter',
     diagram: 'battleframe',
-    screenshotsNeeded: [
-      {
-        caption: 'Battle screen mid-turn',
-        file: '/projects/battleframe/battle.jpg',
-        note: 'Gameplay uses Dragon Ball character sprites. Decide whether to publish them before adding.',
-      },
-      { caption: 'Character creation', file: '/projects/battleframe/character-creation.jpg' },
-      { caption: 'Level-up screen', file: '/projects/battleframe/level-up.jpg' },
-    ],
   },
   {
     slug: 'radiowave',
@@ -224,10 +191,6 @@ export const projects: Project[] = [
       { label: 'Routes', href: 'https://github.com/wmarietta/RadioWave/tree/main/routes' },
     ],
     visual: 'radio',
-    screenshotsNeeded: [
-      { caption: 'Login page', file: '/projects/radiowave/login.jpg' },
-      { caption: 'Manager dashboard', file: '/projects/radiowave/manager.jpg' },
-    ],
   },
   {
     slug: 'nasa-robotics',
@@ -246,13 +209,6 @@ export const projects: Project[] = [
     stack: ['Python', 'ROS', 'Gazebo'],
     links: {},
     visual: 'robotics',
-    screenshotsNeeded: [
-      {
-        caption: 'Valkyrie in the Gazebo simulation',
-        file: '/projects/nasa-robotics/gazebo.jpg',
-        note: 'Optional. Only if you have a capture you’re allowed to share.',
-      },
-    ],
   },
 ]
 
