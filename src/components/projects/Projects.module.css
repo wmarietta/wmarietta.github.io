@@ -1,15 +1,21 @@
-/* Supporting projects: open columns, no card boxes, so uneven copy lengths
-   never leave empty containers behind. */
+/* Selected work: featured card across the top, the rest in two columns */
 .grid {
   display: grid;
-  align-items: start;
-  gap: clamp(3.5rem, 2.5rem + 3vw, 5rem) clamp(2rem, 1rem + 3vw, 4rem);
-  margin-top: clamp(4rem, 3rem + 3vw, 6rem);
+  gap: clamp(1rem, 0.75rem + 1vw, 1.5rem);
 }
 
-@media (min-width: 56em) {
+.cell,
+.featuredCell {
+  display: grid;
+}
+
+@media (min-width: 48em) {
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .featuredCell {
+    grid-column: 1 / -1;
   }
 }
 

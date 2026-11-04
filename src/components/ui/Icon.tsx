@@ -2,6 +2,7 @@ import type { ReactNode, SVGProps } from 'react'
 
 export type IconName =
   | 'arrow-down'
+  | 'arrow-left'
   | 'arrow-right'
   | 'arrow-up'
   | 'arrow-up-right'
@@ -12,10 +13,13 @@ export type IconName =
   | 'copy'
   | 'check'
   | 'plus'
+  | 'close'
 
 const paths: Record<IconName, ReactNode> = {
   'arrow-down': <path d="M12 5v14m0 0 6-6m-6 6-6-6" />,
+  'arrow-left': <path d="M19 12H5m0 0 6 6m-6-6 6-6" />,
   'arrow-right': <path d="M5 12h14m0 0-6-6m6 6-6 6" />,
+  close: <path d="M6 6l12 12M18 6 6 18" />,
   'arrow-up': <path d="M12 19V5m0 0-6 6m6-6 6 6" />,
   'arrow-up-right': <path d="M7 17 17 7m0 0H8m9 0v9" />,
   github: (

@@ -1,0 +1,260 @@
+/* The dialog fills the viewport and scrolls itself; the page behind is locked
+   (html.dialog-open), so there is exactly one scroll container. */
+.dialog {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.dialog::backdrop {
+  background: rgba(6, 8, 11, 0.78);
+}
+
+.sheet {
+  width: min(100% - var(--gutter) * 2, 72rem);
+  margin: clamp(1rem, 4vh, 3rem) auto;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-lg);
+  background: var(--ink-900);
+  box-shadow: 0 40px 120px -40px rgba(0, 0, 0, 0.9);
+}
+
+/* Header stays in view while the project scrolls */
+.head {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: clamp(0.875rem, 0.6rem + 1vw, 1.5rem) clamp(1.25rem, 1rem + 2vw, 3rem);
+  border-bottom: 1px solid var(--line);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  background: rgba(15, 19, 26, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 1.3rem + 1.6vw, 2.75rem);
+  font-weight: 380;
+  font-variation-settings: 'opsz' 144;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 1.25rem;
+  margin-top: 0.5rem;
+  font-size: 0.9375rem;
+}
+
+.category {
+  color: var(--brass-bright);
+}
+
+.close {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  color: var(--paper);
+  transition:
+    background-color 0.2s var(--ease-out),
+    border-color 0.2s var(--ease-out);
+}
+
+.close:hover {
+  border-color: var(--line-brass);
+  background: var(--brass-wash);
+}
+
+/* Body ------------------------------------------------------------------- */
+
+.body {
+  display: grid;
+  gap: clamp(2.75rem, 2rem + 2.5vw, 4rem);
+  padding: clamp(1.5rem, 1rem + 2vw, 3rem) clamp(1.25rem, 1rem + 2vw, 3rem) clamp(2rem, 1.5rem + 2vw, 3.5rem);
+}
+
+.overview {
+  display: grid;
+  gap: 1.75rem;
+}
+
+.summary {
+  max-width: 60ch;
+  font-size: var(--text-lg);
+  color: var(--paper-dim);
+}
+
+.overviewSide {
+  display: grid;
+  gap: 1.25rem;
+  align-content: start;
+}
+
+@media (min-width: 64em) {
+  .overview {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: 3rem;
+  }
+}
+
+.sectionTitle {
+  margin-bottom: 1.25rem;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+}
+
+.highlights {
+  display: grid;
+  gap: 0.875rem 2.5rem;
+  font-size: 0.9875rem;
+  line-height: 1.55;
+  color: var(--paper-dim);
+}
+
+.highlights li {
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.highlights li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 0.5rem;
+  height: 1px;
+  background: var(--brass);
+}
+
+.highlights strong {
+  font-weight: 600;
+  color: var(--paper);
+}
+
+@media (min-width: 48em) {
+  .highlights {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Figures ------------------------------------------------------------------ */
+
+.figure {
+  margin: 0;
+}
+
+.figureFrame {
+  padding: clamp(1rem, 0.75rem + 1.5vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(160deg, var(--ink-800), var(--ink-900));
+}
+
+.figureCaption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.875rem;
+  margin-top: 0.875rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.figNo {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brass);
+  padding-top: 0.15em;
+}
+
+/* Footer ------------------------------------------------------------------- */
+
+.foot {
+  padding: 1.25rem clamp(1.25rem, 1rem + 2vw, 3rem) 1.75rem;
+  border-top: 1px solid var(--line);
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0 1.125rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition:
+    border-color 0.2s var(--ease-out),
+    background-color 0.2s var(--ease-out);
+}
+
+.back:hover {
+  border-color: var(--line-brass);
+  background: var(--brass-wash);
+}
+
+/* Phones: the dialog becomes a full-screen page */
+@media (max-width: 40em) {
+  .sheet {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .head {
+    border-radius: 0;
+  }
+}
+
+/* Motion: the sheet rises in; reduced motion opens instantly */
+@media (prefers-reduced-motion: no-preference) {
+  .dialog[open] .sheet {
+    animation: sheet-in 0.5s var(--ease-out);
+  }
+
+  .dialog[open]::backdrop {
+    animation: backdrop-in 0.3s var(--ease-out);
+  }
+}
+
+@keyframes sheet-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+@keyframes backdrop-in {
+  from {
+    opacity: 0;
+  }
+}

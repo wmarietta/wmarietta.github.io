@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react'
-import type { CaseStudy } from '../../content/types'
+import type { CaseStudy } from '../../../content/types'
 import styles from './RequestDiagram.module.css'
 
 const PITCH = 84
@@ -15,13 +15,13 @@ const WIRE_X = 24
  * never disagree. Animation is CSS-only and disabled for reduced motion.
  */
 export function RequestDiagram({ layers }: { layers: CaseStudy['architecture']['layers'] }) {
-  const rows = layers.slice(0, 6)
+  const rows = layers
   const lastY = TOP + (rows.length - 1) * PITCH
   const servicesIndex = rows.findIndex((l) => l.name.toLowerCase() === 'services')
 
   const description = `Diagram: a request moves from the ${rows
     .map((r) => r.name)
-    .join(', then ')}, and the response returns the same way. The services layer also calls an external card API.`
+    .join(', then ')}, and the response returns the same way. The services layer also calls the external YGOPRODeck card API.`
 
   return (
     <svg
@@ -88,7 +88,7 @@ export function RequestDiagram({ layers }: { layers: CaseStudy['architecture']['
           <line x1={PLATE_X + PLATE_W} y1="0" x2={PLATE_X + PLATE_W + 22} y2="0" className={styles.dashed} />
           <rect x={PLATE_X + PLATE_W + 22} y={-PLATE_H / 2} width="88" height={PLATE_H} rx="9" className={styles.extPlate} />
           <text x={PLATE_X + PLATE_W + 66} y="-1" textAnchor="middle" className={styles.extName}>
-            Card API
+            YGOPRODeck
           </text>
           <text x={PLATE_X + PLATE_W + 66} y="14" textAnchor="middle" className={styles.extDetail}>
             EXTERNAL

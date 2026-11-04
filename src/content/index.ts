@@ -8,12 +8,8 @@ export { experience, experienceIntro, education } from './experience'
 export { aiExperience } from './ai'
 export { navigation } from './navigation'
 
-/** The first project with a case study is featured; everything else is a card. */
+/** The first project with a case study is featured at the top of Selected work. */
 export const featuredProject: Project | undefined = projects.find((p) => p.caseStudy)
-export const cardProjects: Project[] = projects.filter((p) => p !== featuredProject)
-
-/** Anchor id of the featured project's case study, used by the hero figure link. */
-export const caseStudyId = (project: Project) => `${project.slug}-case-study`
 
 /** Projects whose stack includes `skill`, for "Used in" annotations. */
 export function projectsUsing(skill: string): Project[] {

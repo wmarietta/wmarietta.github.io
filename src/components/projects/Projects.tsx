@@ -1,31 +1,36 @@
-import { cardProjects, featuredProject, otherProjects, profile, projects } from '../../content'
+import { featuredProject, otherProjects, profile, projects } from '../../content'
+import { useProjectRouting } from '../../hooks/useProjectRouting'
 import { Section } from '../layout/Section'
 import { Icon } from '../ui/Icon'
-import { FeaturedProject } from './FeaturedProject'
 import { ProjectCard } from './ProjectCard'
-import { ProjectIndex } from './ProjectIndex'
+import { ProjectDialog } from './ProjectDialog'
 import styles from './Projects.module.css'
 
+const SLUGS = projects.map((project) => project.slug)
+
+/** Featured project first, then the rest in content order. */
+const ORDERED = featuredProject ? [featuredProject, ...projects.filter((p) => p !== featuredProject)] : projects
+
 export function Projects() {
+  useProjectRouting(SLUGS)
+
   return (
     <Section
       id="work"
       tight
-      title={
-        <>
-          Projects, from the interface down to the database.
-        </>
-      }
+      title="Selected work"
+      intro="From frontend interfaces to backend systems, these projects demonstrate how I approach software architecture, implementation, and problem-solving."
     >
-      <ProjectIndex projects={projects} />
-
-      {featuredProject && <FeaturedProject project={featuredProject} />}
-
-      <div className={styles.grid}>
-        {cardProjects.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
-        ))}
-      </div>
+      <ul className={styles.grid} aria-label="Projects">
+        {ORDERED.map((project) => {
+          const featured = project === featuredProject
+          return (
+            <li key={project.slug} className={featured ? styles.featuredCell : styles.cell}>
+              <ProjectCard project={project} featured={featured} />
+            </li>
+          )
+        })}
+      </ul>
 
       <div className={styles.more}>
         {otherProjects.length > 0 && (
@@ -51,6 +56,10 @@ export function Projects() {
           <span className="visually-hidden"> (opens in new tab)</span>
         </a>
       </div>
+
+      {projects.map((project) => (
+        <ProjectDialog key={project.slug} project={project} />
+      ))}
     </Section>
   )
 }

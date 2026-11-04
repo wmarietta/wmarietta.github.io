@@ -1,43 +1,12 @@
-/* Collapsible region ------------------------------------------------------ */
+/* Case study: always open inside the project's detail view */
 
-.region {
+.study {
+  /* Clear the dialog’s sticky header when linked to directly */
+  scroll-margin-top: 9rem;
   display: grid;
-  grid-template-rows: 1fr;
+  gap: clamp(2.75rem, 2rem + 2.5vw, 4rem);
+  padding-top: clamp(2rem, 1.5rem + 2vw, 3rem);
   border-top: 1px solid var(--line);
-  transition:
-    grid-template-rows 0.7s var(--ease-in-out),
-    border-color 0.4s;
-}
-
-:global(.js) .region[data-open='false'] {
-  grid-template-rows: 0fr;
-  border-top-color: transparent;
-}
-
-.clip {
-  min-height: 0;
-  overflow: hidden;
-}
-
-.body {
-  display: grid;
-  gap: clamp(3rem, 2rem + 3vw, 4.5rem);
-  padding: clamp(2rem, 1.5rem + 2.5vw, 4rem) clamp(1.25rem, 1rem + 1.5vw, 2.5rem);
-  background: var(--ink-900);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  :global(.js) .region .body {
-    transition:
-      opacity 0.5s var(--ease-out) 0.15s,
-      transform 0.6s var(--ease-out) 0.15s;
-  }
-
-  :global(.js) .region[data-open='false'] .body {
-    opacity: 0;
-    transform: translateY(-12px);
-    transition-delay: 0s;
-  }
 }
 
 /* Lead -------------------------------------------------------------------- */
@@ -48,12 +17,12 @@
   max-width: 52rem;
 }
 
-.kicker {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--brass);
+.studyTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 1.4rem + 1.2vw, 2.25rem);
+  font-weight: 380;
+  font-variation-settings: 'opsz' 144;
+  letter-spacing: -0.02em;
 }
 
 .overview {
@@ -152,29 +121,17 @@
   color: var(--paper-dim);
 }
 
+/* Figure 01 beside the layer descriptions on wide screens */
+.architecture {
+  display: grid;
+  gap: 2rem;
+}
+
 @media (min-width: 64em) {
-  .pipeline {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 1.5rem;
-  }
-
-  .layer {
-    grid-template-columns: 1fr;
-    padding-bottom: 0;
-  }
-
-  .layer::before {
-    left: 2.5rem;
-    right: -1.5rem;
-    top: 1.25rem;
-    bottom: auto;
-    width: auto;
-    height: 1px;
-  }
-
-  .layerNode {
-    grid-row: auto;
-    margin-bottom: 1rem;
+  .architecture {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
+    align-items: start;
+    gap: clamp(2rem, 4vw, 3.5rem);
   }
 }
 

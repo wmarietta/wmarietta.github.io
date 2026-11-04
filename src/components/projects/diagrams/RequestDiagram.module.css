@@ -60,13 +60,13 @@
     font-size: 11px;
   }
   .name {
-    font-size: 17px;
+    font-size: 16px;
   }
   .index {
     font-size: 11px;
   }
   .detail {
-    font-size: 12px;
+    font-size: 11px;
   }
   .gapLabel {
     font-size: 10px;
@@ -208,14 +208,18 @@
     transform: translateY(336px);
   }
   39%,
-  50% {
+  41% {
     transform: translateY(420px);
   }
-  80% {
+  46%,
+  54% {
+    transform: translateY(504px);
+  }
+  82% {
     transform: translateY(0);
     opacity: 1;
   }
-  88%,
+  90%,
   100% {
     transform: translateY(0);
     opacity: 0;

@@ -1,22 +1,24 @@
-.gallery {
-  border-top: 1px solid var(--line);
-  padding-block: 1.5rem;
+.heading {
+  margin-bottom: 1.25rem;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 400;
+  letter-spacing: -0.015em;
 }
 
-.strip {
-  display: flex;
-  gap: 1rem;
-  padding-inline: clamp(1.25rem, 1rem + 1.5vw, 2.5rem);
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-padding-inline: clamp(1.25rem, 1rem + 1.5vw, 2.5rem);
-  scrollbar-width: thin;
-  scrollbar-color: var(--line-strong) transparent;
+.grid {
+  display: grid;
+  gap: 1.5rem;
 }
 
-.item {
-  flex: 0 0 min(85%, 36rem);
-  scroll-snap-align: start;
+@media (min-width: 48em) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.shot {
+  margin: 0;
 }
 
 .image {
@@ -29,8 +31,44 @@
 
 .caption {
   margin-top: 0.625rem;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+/* Placeholder for a screenshot that still needs capturing (dev only) */
+.slot {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 0.375rem;
+  aspect-ratio: 16 / 10;
+  padding: 1.5rem;
+  border: 1px dashed var(--line-brass);
+  border-radius: var(--radius);
+  background: repeating-linear-gradient(-45deg, transparent 0 10px, rgba(214, 162, 78, 0.035) 10px 20px);
+}
+
+.slotLabel {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+
+.slotCaption {
+  font-size: var(--text-lg);
+  font-weight: 550;
+}
+
+.slotFile {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--paper-dim);
+  overflow-wrap: anywhere;
+}
+
+.slotNote {
+  font-size: 0.875rem;
   color: var(--muted);
 }
