@@ -6,13 +6,13 @@ export const experienceIntro =
 export const experience: Experience[] = [
   {
     role: 'Lead Instructor',
-    organization: 'Mason Game & Technology Academy',
+    organization: 'Mason Game and Technology Academy',
     start: 2016,
     end: 2024,
     summary: 'Programming and game-development classes for students.',
     points: [
       'Led programming and game-development classes of 20+ students through hands-on software projects.',
-      'Developed technical curriculum, programming exercises, and course materials for new and existing classes.',
+      'Developed technical curricula, programming exercises, and course materials for new and existing classes.',
       'Trained and mentored new instructors and teaching assistants on course content, expectations, and procedures.',
     ],
     strengths: ['Technical instruction', 'Curriculum design', 'Mentorship', 'Leadership'],
@@ -25,9 +25,9 @@ export const experience: Experience[] = [
     summary: 'Unity application development training for educators and professionals.',
     points: [
       'Taught Unity application development to groups of 6–20+ public school teachers and professionals.',
-      'Created technical curriculum and instructional materials for use by educational institutions.',
+      'Developed technical curricula and instructional materials for use by educational institutions.',
       'Contributed to an interactive educational web platform.',
-      'Delivered technical demonstrations of lessons and educational software to prospective partners.',
+      'Presented technical demonstrations of lessons and educational software to prospective business partners.',
     ],
     strengths: ['Unity', 'Technical training', 'Curriculum design', 'Presenting to partners'],
   },

@@ -26,7 +26,7 @@ export const profile: Profile = {
     heading: 'I build *systems,* not just features.',
     paragraphs: [
       'I’m a full-stack developer with a B.S. in Computer Science from George Mason University (May 2026). I build React and TypeScript interfaces, the Node.js and Express APIs behind them, and the relational databases that store their data.',
-      'I care about more than getting code to run. I want to understand how the entire application works, make deliberate architectural decisions, and build software that can grow without becoming difficult to maintain. I’m comfortable taking ownership of problems across the frontend, backend, and database, and explaining the reasoning behind my solutions.',
+      'I care about more than getting code to run. I want to understand how the entire application works, make deliberate architectural decisions, and build software that can grow without becoming difficult to maintain. I take ownership of problems across the frontend, backend, and database, and I explain the reasoning behind my solutions.',
       'Before focusing on software development, I spent eight years teaching programming and game development to students, teachers, and professionals. Explaining technical ideas to people who are new to them shaped how I communicate, and how I write code that other people need to read.',
     ],
     principles: [

@@ -13,14 +13,12 @@ export const projects: Project[] = [
     status: 'in-development',
     takeaway: 'Layered REST API, authentication, MySQL design',
     summary:
-      'A full-stack web application I designed and built to run a Yu-Gi-Oh! progression league, backed by a layered REST API and a MySQL database. Authentication, card search, and deck management are implemented; player, match, and league-progression tracking are in development.',
+      'A full-stack trading card game management platform I designed and built to run a Yu-Gi-Oh! progression league, backed by a layered REST API and a relational MySQL database. Authentication, card search, and the deck-management APIs are implemented; the deck-management interface and player, match, and league-progression tracking are in development.',
     highlights: [
-      '**Designed a layered REST API** in Node.js and Express, with middleware, controllers, services, and repositories each owning a single responsibility.',
-      '**Implemented secure authentication** with Argon2 password hashing, persistent sessions, and middleware-protected routes.',
-      '**Designed the MySQL schema** around users, sessions, and decks, with explicit relationships the league features build on.',
+      '**Architected a full-stack application** with a React/TypeScript frontend and a layered Node.js/Express REST API, separating request handling, business logic, and data access to improve maintainability and extensibility.',
+      '**Designed a relational MySQL database** for a trading card game management platform, implementing deck-management APIs, YDK deck imports, and cached external card searches to reduce redundant requests.',
+      '**Implemented secure authentication** using Argon2 password hashing, persistent sessions, and server-side session and ownership checks that restrict deck changes to their owners.',
       '**Built a typed React frontend** in TypeScript that consumes the API through typed request and response shapes.',
-      '**Integrated an external card API** to power trading-card search.',
-      '**Implemented deck management:** creating, editing, and importing decks.',
     ],
     stack: ['React', 'TypeScript', 'Node.js', 'Express', 'MySQL', 'REST APIs', 'Argon2', 'AWS Lightsail'],
     links: {},
@@ -50,8 +48,8 @@ export const projects: Project[] = [
           },
           {
             name: 'Middleware',
-            detail: 'Sessions · auth',
-            role: 'Runs before route handlers: checks the session on protected routes and handles cross-cutting concerns.',
+            detail: 'Sessions · errors',
+            role: 'Loads the session on every request and turns application errors into consistent JSON responses.',
           },
           {
             name: 'Controllers',
@@ -61,7 +59,7 @@ export const projects: Project[] = [
           {
             name: 'Services',
             detail: 'Application logic',
-            role: 'Own the rules for accounts, decks, and imports, and coordinate calls to the external card API.',
+            role: 'Own the rules for accounts, decks, and imports, including deck ownership checks, and coordinate calls to the external card API.',
           },
           {
             name: 'Repositories',
@@ -71,7 +69,7 @@ export const projects: Project[] = [
           {
             name: 'MySQL',
             detail: 'Relational store',
-            role: 'Holds users, sessions, decks, and league data with explicit relationships between them.',
+            role: 'Holds users, decks, cards, and league data with explicit relationships between them.',
           },
         ],
       },
@@ -91,8 +89,8 @@ export const projects: Project[] = [
             body: 'The session survives page reloads and return visits, so users don’t re-authenticate on every request.',
           },
           {
-            title: 'Protected routes',
-            body: 'Middleware checks the session before a request reaches any controller that needs a signed-in user.',
+            title: 'Ownership checks',
+            body: 'Deck changes run only for the signed-in user who owns the deck. The service rejects anyone else before the database is touched.',
           },
         ],
       },
@@ -101,9 +99,9 @@ export const projects: Project[] = [
           'I designed the schema around a few core entities. The account and deck entities are in use today; the league entities are being added as those features come together.',
         entities: [
           { name: 'Users', body: 'Accounts with hashed credentials. Each user owns their decks.', status: 'completed' },
-          { name: 'Sessions', body: 'Persistent sign-in state tied to a user.', status: 'completed' },
-          { name: 'Decks', body: 'Named card lists a user creates, edits, or imports.', status: 'completed' },
-          { name: 'Cards', body: 'Card data found through the external card API and referenced from decks.', status: 'completed' },
+          { name: 'Decks', body: 'Named card lists a user creates, renames, deletes, or imports from YDK files.', status: 'completed' },
+          { name: 'Deck cards', body: 'Each deck’s cards by deck section, with quantities enforced by check constraints.', status: 'completed' },
+          { name: 'Cards', body: 'Card data cached from the external card API and referenced from decks.', status: 'completed' },
           { name: 'Players & matches', body: 'League participants and recorded match results.', status: 'in-development' },
           { name: 'League progression', body: 'Standings and progression across a league season.', status: 'in-development' },
         ],
@@ -114,10 +112,10 @@ export const projects: Project[] = [
           'Express REST API with layered architecture',
           'Registration, login, and persistent sessions',
           'Argon2 password hashing',
-          'Card search via external API',
-          'Deck creation, management, and import',
+          'Card search with cached external API results',
+          'Deck-management and YDK import APIs',
         ],
-        inProgress: ['Player tracking', 'Match recording', 'League standings and progression'],
+        inProgress: ['Deck-management interface', 'Player tracking', 'Match recording', 'League standings and progression'],
       },
     },
   },
@@ -128,11 +126,10 @@ export const projects: Project[] = [
     status: 'completed',
     takeaway: 'Task scheduling, concurrency, distributed processing',
     summary:
-      'A distributed MapReduce system I implemented in Go, with a coordinator that schedules map and reduce tasks across a pool of concurrent worker processes.',
+      'A distributed MapReduce framework I implemented in Go, with a coordinator that schedules map and reduce tasks across a pool of concurrent worker processes.',
     highlights: [
-      '**Built the coordinator** that splits each job into map tasks and schedules reduce tasks once intermediate data is ready.',
-      '**Implemented worker processes** that execute map and reduce tasks in parallel over grouped keys.',
-      '**Tracked task state across concurrent workers** to coordinate the map and reduce phases of every job.',
+      '**Developed a distributed MapReduce framework in Go**, coordinating concurrent worker processes that execute map and reduce tasks in parallel over grouped keys.',
+      '**Implemented task scheduling and state tracking** to enforce dependencies between map and reduce phases, scheduling reduce tasks only once intermediate data is ready.',
     ],
     stack: ['Go', 'Concurrency', 'Distributed systems'],
     links: {},
@@ -147,12 +144,13 @@ export const projects: Project[] = [
     summary:
       'A native Android fighting game I built in Java, with a custom animation engine, turn-based combat, character progression, and data-driven game content. I designed its rendering system and object-oriented architecture, separating combat mechanics, characters, abilities, and progression.',
     highlights: [
-      '**Built a custom render loop** on a SurfaceView running on its own thread, driving idle, attack, special, and hurt animation states.',
-      '**Made game content data-driven:** abilities, items, and opponents load from JSON with Gson, with caching.',
-      '**Designed an object-oriented game model** for characters, stats, abilities, items, and battles.',
+      '**Engineered a custom 2D animation system** on Android’s SurfaceView with a dedicated render thread that keeps the UI responsive.',
+      '**Built a reusable update/draw interface** shared by characters and projectiles, so every on-screen object runs through the same render loop; characters animate through idle, attack, special, and hurt states.',
+      '**Designed an extensible turn-based combat system** with reusable interfaces for abilities and items, JSON-driven game content, and integrated character progression.',
+      '**Made game content data-driven:** abilities, items, and opponents load from JSON with Gson, with in-memory caching.',
       '**Implemented the full game flow** across activities: character creation, turn-based battles, leveling up, and a shop.',
     ],
-    stack: ['Java', 'Android', 'Android Studio', 'Gson'],
+    stack: ['Java', 'Android SDK', 'Android Studio', 'Gson'],
     links: { repo: 'https://github.com/wmarietta/AndroidFightingGame' },
     evidence: [
       {

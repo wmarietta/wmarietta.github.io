@@ -22,7 +22,7 @@ export const skillGroups: SkillGroup[] = [
   { name: 'Frontend', items: ['React', 'HTML', 'CSS', 'Responsive design'] },
   { name: 'Backend', items: ['Node.js', 'Express', 'REST APIs', 'Authentication', 'Session management'] },
   { name: 'Data', items: ['MySQL', 'MongoDB', 'Relational database design'] },
-  { name: 'Tools & platforms', items: ['Git', 'AWS Lightsail', 'Android Studio', 'Unity', 'Unreal Engine 5'] },
+  { name: 'Tools & platforms', items: ['Git', 'AWS Lightsail', 'Android SDK', 'Android Studio', 'Unity', 'Unreal Engine 5'] },
   {
     name: 'Foundations',
     items: [
