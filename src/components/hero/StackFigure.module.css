@@ -1,0 +1,163 @@
+.figure {
+  margin: 0;
+}
+
+.svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* Plates ------------------------------------------------------------------ */
+
+.top {
+  fill: var(--ink-900);
+  stroke: var(--line-strong);
+  stroke-width: 1;
+  stroke-linejoin: round;
+}
+
+.sideLeft {
+  fill: var(--ink-800);
+  stroke: var(--line);
+  stroke-width: 1;
+}
+
+.sideRight {
+  fill: var(--ink-850);
+  stroke: var(--line);
+  stroke-width: 1;
+}
+
+/* Plate contents: drawn flat, projected by the iso matrix, so strokes keep
+   their width with non-scaling-stroke. */
+.ink,
+.fill,
+.accent,
+.wire,
+.accentWire,
+.faint {
+  vector-effect: non-scaling-stroke;
+}
+
+.ink {
+  fill: none;
+  stroke: rgba(236, 230, 218, 0.34);
+  stroke-width: 1;
+}
+
+.fill {
+  fill: rgba(236, 230, 218, 0.14);
+  stroke: none;
+}
+
+.accent {
+  fill: rgba(214, 162, 78, 0.18);
+  stroke: var(--brass);
+  stroke-width: 1;
+}
+
+.wire {
+  stroke: rgba(236, 230, 218, 0.26);
+  stroke-width: 1;
+}
+
+.faint {
+  stroke: rgba(236, 230, 218, 0.12);
+  stroke-width: 1;
+}
+
+.accentWire {
+  stroke: var(--brass);
+  stroke-width: 1.25;
+}
+
+.connector {
+  stroke: var(--brass);
+  stroke-width: 1;
+  stroke-dasharray: 3 4;
+  opacity: 0.7;
+}
+
+/* Labels ------------------------------------------------------------------ */
+
+.leader {
+  stroke: var(--line-strong);
+  stroke-width: 1;
+}
+
+.labelName {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 550;
+  fill: var(--paper);
+}
+
+.labelDetail {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  fill: var(--muted);
+}
+
+.packet {
+  fill: var(--brass-bright);
+  opacity: 0;
+}
+
+/* Motion: the stack assembles bottom-up, then a request travels down through
+   the layers and back. Reduced motion shows the finished drawing. ---------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  :global(.js) .plate {
+    animation: plate-in 1s var(--ease-out) both;
+    animation-delay: calc(0.35s + var(--i) * 0.14s);
+  }
+
+  :global(.js) .label {
+    animation: fade-in 0.8s var(--ease-out) both;
+    animation-delay: calc(0.9s + var(--i) * 0.1s);
+  }
+
+  .packet {
+    animation: travel 9s var(--ease-in-out) 1.8s infinite;
+  }
+}
+
+@keyframes plate-in {
+  from {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes travel {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  5% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  30%,
+  45% {
+    opacity: 1;
+    transform: translateY(300px);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  76%,
+  100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+}

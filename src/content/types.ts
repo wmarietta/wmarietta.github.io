@@ -16,8 +16,8 @@ export interface Profile {
   title: string
   location: string
   email: string
-  /** The role, stated large under the name in the hero. */
-  headline: string
+  /** Primary stack, listed in the hero. */
+  primaryStack: string[]
   /** One- or two-sentence introduction under the name in the hero. */
   heroIntro: string
   links: {
@@ -48,6 +48,20 @@ export type ProjectStatus = 'in-development' | 'completed'
  * screenshots; add real screenshots via `screenshots` instead.
  */
 export type ProjectVisual = 'duelist' | 'mapreduce' | 'fighter' | 'radio' | 'robotics'
+
+/** Architecture diagram shown in a project's detail view. */
+export type ProjectDiagram = 'request-lifecycle' | 'mapreduce' | 'battleframe'
+
+/**
+ * A screenshot the project still needs. Shown as a clearly marked placeholder in
+ * development only (`npm run dev`); production builds leave it out.
+ */
+export interface ScreenshotSlot {
+  caption: string
+  /** Where to save the image inside /public. */
+  file: string
+  note?: string
+}
 
 export interface Screenshot {
   /** Path inside /public, e.g. "/projects/duelist-kingdom/decks.png". */
@@ -83,8 +97,8 @@ export interface Project {
   title: string
   category: string
   status: ProjectStatus
-  /** Three-to-six words on what the project demonstrates, shown in the project index. */
-  takeaway: string
+  /** One or two sentences for the project card. */
+  cardSummary: string
   summary: string
   /**
    * Concrete engineering work: what *I* built. Start each with the key
@@ -98,6 +112,8 @@ export interface Project {
   evidence?: Link[]
   visual: ProjectVisual
   screenshots?: Screenshot[]
+  screenshotsNeeded?: ScreenshotSlot[]
+  diagram?: ProjectDiagram
   caseStudy?: CaseStudy
 }
 

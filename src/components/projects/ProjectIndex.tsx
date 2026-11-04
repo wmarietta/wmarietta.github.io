@@ -23,7 +23,7 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
                 {project.title}
               </a>
               {project.status === 'in-development' && <span className={styles.badge}>In development</span>}
-              <p className={styles.takeaway}>{project.takeaway}</p>
+              <p className={styles.takeaway}>{project.cardSummary}</p>
             </div>
             <p className={styles.stack}>
               <span className="visually-hidden">Stack: </span>

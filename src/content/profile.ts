@@ -4,12 +4,12 @@ export const profile: Profile = {
   name: 'William Marietta',
   firstName: 'William',
   lastName: 'Marietta',
-  title: 'Software Developer',
+  title: 'Full-Stack Developer',
   location: 'Northern Virginia',
   email: 'wemarietta@gmail.com',
-  headline: 'Full-stack & backend developer.',
+  primaryStack: ['TypeScript', 'React', 'Node.js', 'Express', 'MySQL'],
   heroIntro:
-    'I build full-stack web applications with React, TypeScript, Node.js, Express, and MySQL. My strongest work is on the backend: designing REST APIs, layering application logic, and modeling relational data.',
+    'I design and build web applications, from responsive interfaces to backend APIs and relational databases. My work focuses on maintainable architecture, secure systems, and turning complex requirements into working software.',
   links: {
     github: 'https://github.com/wmarietta',
     resume: '/resume/William-Marietta-Resume.pdf',

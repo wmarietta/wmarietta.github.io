@@ -1,13 +1,11 @@
 import type { CSSProperties } from 'react'
-import { caseStudyId, featuredProject, profile } from '../../content'
+import { profile } from '../../content'
 import { ButtonLink } from '../ui/Button'
 import { Icon } from '../ui/Icon'
-import { RequestDiagram } from './RequestDiagram'
+import { StackFigure } from './StackFigure'
 import styles from './Hero.module.css'
 
 export function Hero() {
-  const layers = featuredProject?.caseStudy?.architecture.layers
-
   return (
     <section id="top" className={styles.hero} aria-labelledby="hero-name">
       <div className={`container ${styles.layout}`}>
@@ -21,63 +19,41 @@ export function Hero() {
             </span>
           </h1>
 
-          <p className={`${styles.headline} ${styles.enter}`} style={{ '--d': '280ms' } as CSSProperties}>
-            {profile.headline}
+          <p className={`${styles.role} ${styles.enter}`} style={{ '--d': '240ms' } as CSSProperties}>
+            {profile.title}
           </p>
 
-          <p className={`${styles.intro} ${styles.enter}`} style={{ '--d': '380ms' } as CSSProperties}>
+          <p className={`${styles.intro} ${styles.enter}`} style={{ '--d': '330ms' } as CSSProperties}>
             {profile.heroIntro}
           </p>
 
-          <div className={`${styles.actions} ${styles.enter}`} style={{ '--d': '480ms' } as CSSProperties}>
-            <div className={styles.buttons}>
-              <ButtonLink href="#work" icon="arrow-down">
-                View selected work
-              </ButtonLink>
-              <ButtonLink href={profile.links.resume} variant="secondary" icon="file" external>
-                Résumé <span className={styles.pdf}>PDF</span>
-              </ButtonLink>
-            </div>
-            <div className={styles.profiles}>
-              <ButtonLink href={profile.links.github} variant="ghost" icon="arrow-up-right" external>
-                <span className={styles.profileLabel}>
-                  <Icon name="github" size={17} />
-                  GitHub
-                </span>
-              </ButtonLink>
-              {profile.links.linkedin && (
-                <ButtonLink href={profile.links.linkedin} variant="ghost" icon="arrow-up-right" external>
-                  <span className={styles.profileLabel}>
-                    <Icon name="linkedin" size={16} />
-                    LinkedIn
-                  </span>
-                </ButtonLink>
-              )}
-            </div>
+          <ul
+            className={`${styles.stack} ${styles.enter}`}
+            style={{ '--d': '410ms' } as CSSProperties}
+            aria-label="Primary stack"
+          >
+            {profile.primaryStack.map((tech) => (
+              <li key={tech}>{tech}</li>
+            ))}
+          </ul>
+
+          <div className={`${styles.actions} ${styles.enter}`} style={{ '--d': '490ms' } as CSSProperties}>
+            <ButtonLink href="#work" icon="arrow-down">
+              View projects
+            </ButtonLink>
+            <ButtonLink href={profile.links.resume} variant="secondary" icon="file" external>
+              View résumé <span className={styles.pdf}>PDF</span>
+            </ButtonLink>
+            <ButtonLink href={profile.links.github} variant="secondary" icon="arrow-up-right" external>
+              <span className={styles.label}>
+                <Icon name="github" size={17} />
+                GitHub
+              </span>
+            </ButtonLink>
           </div>
         </div>
 
-        {featuredProject && layers && (
-          <figure className={styles.figure}>
-            <div className={styles.frame}>
-              <span className={styles.corner} data-pos="tl" aria-hidden="true" />
-              <span className={styles.corner} data-pos="tr" aria-hidden="true" />
-              <span className={styles.corner} data-pos="bl" aria-hidden="true" />
-              <span className={styles.corner} data-pos="br" aria-hidden="true" />
-              <RequestDiagram layers={layers} />
-            </div>
-            <figcaption className={styles.caption}>
-              <span className={styles.figNo}>Fig. 01</span>
-              <span>
-                How a request moves through{' '}
-                <a href={`#${caseStudyId(featuredProject)}`} className={styles.captionLink}>
-                  {featuredProject.title}
-                  <Icon name="arrow-right" size={14} />
-                </a>
-              </span>
-            </figcaption>
-          </figure>
-        )}
+        <StackFigure className={styles.figure} />
       </div>
 
       <div className="container">
@@ -89,7 +65,7 @@ export function Hero() {
                 {fact.href ? (
                   <a href={fact.href} className={styles.factLink}>
                     {fact.value}
-                    <Icon name="arrow-down" size={14} />
+                    <Icon name="arrow-right" size={14} />
                   </a>
                 ) : (
                   fact.value
