@@ -1,0 +1,132 @@
+/* Phones: one column in execution order */
+.layout {
+  grid-template-areas:
+    'coord'
+    'assignMap'
+    'map'
+    'inter'
+    'gate'
+    'assignReduce'
+    'reduce'
+    'output';
+}
+
+.coordinator {
+  grid-area: coord;
+}
+.assignMap {
+  grid-area: assignMap;
+}
+.assignReduce {
+  grid-area: assignReduce;
+}
+.map {
+  grid-area: map;
+}
+.intermediate {
+  grid-area: inter;
+}
+.gate {
+  grid-area: gate;
+}
+.reduce {
+  grid-area: reduce;
+}
+.output {
+  grid-area: output;
+}
+
+/* Task state machine, shown as a row of states */
+.states {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.375rem;
+  margin-top: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.states li {
+  white-space: nowrap;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--paper-dim);
+}
+
+.states li:last-child {
+  border-color: var(--line-brass);
+  color: var(--brass-bright);
+}
+
+.states li:not(:last-child)::after {
+  content: '→';
+  margin-left: 0.6rem;
+  margin-right: -0.2rem;
+  color: var(--faint);
+}
+
+/* Dependency gate between the phases */
+.gate {
+  display: grid;
+  justify-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--brass-bright);
+}
+
+.gateLine {
+  width: 60%;
+  height: 0;
+  border-top: 1px dashed var(--brass);
+}
+
+/* Wide: coordinator across the top, phases left to right */
+@media (min-width: 48em) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr) 7.5rem minmax(0, 1fr) minmax(0, 0.75fr);
+    grid-template-areas:
+      'coord coord coord coord coord'
+      'assignMap . . assignReduce .'
+      'map inter gate reduce output';
+    column-gap: 1.75rem;
+    align-items: stretch;
+  }
+
+  .assignMap,
+  .assignReduce {
+    justify-items: center;
+  }
+
+  .map::after,
+  .intermediate::after,
+  .reduce::after {
+    content: '→';
+    position: absolute;
+    top: 50%;
+    right: -1.35rem;
+    transform: translateY(-50%);
+    color: var(--brass);
+  }
+
+  .intermediate::after {
+    right: -1.5rem;
+  }
+
+  .gate {
+    align-content: center;
+    padding: 0;
+  }
+
+  .gateLine {
+    width: 0;
+    height: 2.5rem;
+    border-top: 0;
+    border-left: 1px dashed var(--brass);
+  }
+}

@@ -1,0 +1,96 @@
+/* Phones: one column, UI thread → shared objects → render thread */
+.layout {
+  grid-template-areas:
+    'ui'
+    'toReg'
+    'registry'
+    'toRender'
+    'render'
+    'content';
+}
+
+.ui {
+  grid-area: ui;
+}
+.toRegistry {
+  grid-area: toReg;
+}
+.registry {
+  grid-area: registry;
+}
+.toRender {
+  grid-area: toRender;
+}
+.render {
+  grid-area: render;
+}
+.content {
+  grid-area: content;
+}
+
+/* The frame loop */
+.loop {
+  position: relative;
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  padding-right: 1.75rem;
+}
+
+.loop li {
+  display: grid;
+  gap: 0.1rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--ink-900);
+  color: var(--paper-dim);
+  font-size: 0.8125rem;
+}
+
+/* Return path from sleep() back to update() */
+.loop::after {
+  content: '';
+  position: absolute;
+  top: 1.25rem;
+  bottom: 1.25rem;
+  right: 0.5rem;
+  width: 0.75rem;
+  border: 1px solid var(--brass);
+  border-left: 0;
+  border-radius: 0 8px 8px 0;
+  opacity: 0.7;
+}
+
+/* Wide: three columns with labelled arrows between them */
+@media (min-width: 56em) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr) 6.5rem minmax(0, 1fr) 6.5rem minmax(0, 1fr);
+    grid-template-areas:
+      'ui toReg registry toRender render'
+      'content content content content content';
+    align-items: stretch;
+    column-gap: 0.5rem;
+  }
+
+  .toRegistry,
+  .toRender {
+    align-content: center;
+  }
+
+  .toRegistry::before,
+  .toRender::before {
+    width: 100%;
+    height: 1px;
+    margin: 0 0 0.375rem;
+  }
+
+  .toRegistry::after,
+  .toRender::after {
+    content: '→';
+    order: -1;
+    justify-self: end;
+    margin-top: -1.3rem;
+    color: var(--brass);
+  }
+}

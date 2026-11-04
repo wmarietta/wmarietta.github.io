@@ -7,6 +7,8 @@ import { emphasize } from '../ui/emphasize'
 import { CaseStudy } from './CaseStudy'
 import { Gallery } from './Gallery'
 import { ProjectActions } from './ProjectActions'
+import { BattleframeDiagram } from './diagrams/BattleframeDiagram'
+import { MapReduceDiagram } from './diagrams/MapReduceDiagram'
 import { RequestDiagram } from './diagrams/RequestDiagram'
 import styles from './ProjectDialog.module.css'
 
@@ -107,6 +109,8 @@ function DiagramFigure({ kind, project }: { kind: ProjectDiagram; project: Proje
   if (kind === 'request-lifecycle' && project.caseStudy) {
     diagram = <RequestDiagram layers={project.caseStudy.architecture.layers} />
   }
+  if (kind === 'mapreduce') diagram = <MapReduceDiagram />
+  if (kind === 'battleframe') diagram = <BattleframeDiagram />
   if (!diagram) return null
   const { number, caption } = FIGURES[kind]
   return (

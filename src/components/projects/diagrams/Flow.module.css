@@ -1,0 +1,129 @@
+/* Shared building blocks for the HTML architecture diagrams. Real text, so
+   they stay readable at any width and reflow to a single column on phones. */
+
+.diagram {
+  display: grid;
+  gap: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+.node {
+  position: relative;
+  padding: 0.875rem 1rem 1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--ink-850);
+}
+
+.node[data-tone='accent'] {
+  border-color: var(--line-brass);
+  background: linear-gradient(160deg, #1d1b17, var(--ink-850));
+}
+
+.node[data-tone='quiet'] {
+  border-style: dashed;
+  background: transparent;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+
+.title {
+  margin-top: 0.25rem;
+  font-weight: 600;
+  color: var(--paper);
+}
+
+.text {
+  margin-top: 0.375rem;
+  color: var(--paper-dim);
+}
+
+.code {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--steel);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin-top: 0.75rem;
+}
+
+.chip {
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--paper);
+  background: var(--ink-900);
+}
+
+.chip[data-tone='accent'] {
+  border-color: var(--line-brass);
+  color: var(--brass-bright);
+}
+
+/* Down arrow between stacked nodes (phones), right arrow on wide layouts */
+.arrow {
+  display: grid;
+  place-items: center;
+  color: var(--brass);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+.arrow::before {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 1.25rem;
+  margin-bottom: 0.25rem;
+  background: var(--line-brass);
+}
+
+.steps {
+  display: grid;
+  gap: 0.625rem;
+  margin-top: 0.75rem;
+  counter-reset: step;
+}
+
+.steps li {
+  position: relative;
+  padding-left: 1.75rem;
+  counter-increment: step;
+}
+
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0.05rem;
+  display: grid;
+  place-items: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 1px solid var(--line-brass);
+  border-radius: 50%;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--brass);
+}
+
+.note {
+  margin-top: 0.75rem;
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
