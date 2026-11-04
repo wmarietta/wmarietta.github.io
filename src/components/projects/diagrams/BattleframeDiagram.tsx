@@ -17,10 +17,16 @@ export function BattleframeDiagram() {
         <ol className={flow.steps}>
           <li>The player picks an ability or item.</li>
           <li>
-            <span className={flow.code}>Battle.performAction()</span> enforces turn order and mana cost, then applies the action to the opponent.
+            <span className={flow.code}>
+              Battle.<wbr />
+              performAction()
+            </span> enforces turn order and mana cost, then applies the action to the opponent.
           </li>
           <li>
-            On success, <span className={flow.code}>BattleView.characterAction()</span> sets the attacker’s animation
+            On success, <span className={flow.code}>
+              BattleView.<wbr />
+              characterAction()
+            </span> sets the attacker’s animation
             state and adds a projectile for special abilities.
           </li>
         </ol>

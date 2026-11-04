@@ -86,8 +86,8 @@
   border-top: 1px dashed var(--brass);
 }
 
-/* Wide: coordinator across the top, phases left to right */
-@media (min-width: 48em) {
+/* Wide container: coordinator across the top, phases left to right */
+@container (min-width: 52rem) {
   .layout {
     grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr) 7.5rem minmax(0, 1fr) minmax(0, 0.75fr);
     grid-template-areas:

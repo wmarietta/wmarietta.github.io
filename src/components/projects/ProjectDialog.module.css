@@ -41,9 +41,7 @@
   padding: clamp(0.875rem, 0.6rem + 1vw, 1.5rem) clamp(1.25rem, 1rem + 2vw, 3rem);
   border-bottom: 1px solid var(--line);
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-  background: rgba(15, 19, 26, 0.94);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: var(--ink-900);
 }
 
 .title {
@@ -168,6 +166,7 @@
 }
 
 .figureFrame {
+  container-type: inline-size;
   padding: clamp(1rem, 0.75rem + 1.5vw, 2rem);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);

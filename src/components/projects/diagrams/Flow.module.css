@@ -10,6 +10,8 @@
 
 .node {
   position: relative;
+  min-width: 0;
+  overflow-wrap: break-word;
   padding: 0.875rem 1rem 1rem;
   border: 1px solid var(--line-strong);
   border-radius: var(--radius);
@@ -46,6 +48,7 @@
 }
 
 .code {
+  overflow-wrap: anywhere;
   font-family: var(--font-mono);
   font-size: 0.8125rem;
   color: var(--steel);
