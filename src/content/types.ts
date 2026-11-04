@@ -16,8 +16,8 @@ export interface Profile {
   title: string
   location: string
   email: string
-  /** Short availability line shown in the hero and contact section. */
-  availability: string
+  /** The role, stated large under the name in the hero. */
+  headline: string
   /** One- or two-sentence introduction under the name in the hero. */
   heroIntro: string
   links: {

@@ -13,18 +13,17 @@ export function Experience() {
   return (
     <Section
       id="experience"
-      eyebrow="Experience"
       title={
         <>
-          Eight years of <em>teaching people to build software.</em>
+          Eight years of teaching people to build software.
         </>
       }
       intro={experienceIntro}
     >
       {/* Timeline overview (decorative; the same information is in the list below) */}
-      <div className={`${styles.timeline} reveal`} aria-hidden="true">
+      <div className={styles.timeline} aria-hidden="true">
         <div className={styles.bars}>
-          {experience.map((job, i) => (
+          {experience.map((job) => (
             <div
               key={job.organization}
               className={styles.bar}
@@ -32,7 +31,6 @@ export function Experience() {
                 {
                   '--start': (job.start - first) / span,
                   '--length': (job.end - job.start) / span,
-                  '--i': i,
                 } as CSSProperties
               }
             >
@@ -51,7 +49,7 @@ export function Experience() {
 
       <ol className={styles.list}>
         {experience.map((job) => (
-          <li key={job.organization} className={`${styles.entry} reveal`}>
+          <li key={job.organization} className={styles.entry}>
             <div className={styles.when}>
               <p className={styles.years}>
                 {job.start}

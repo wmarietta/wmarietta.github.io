@@ -1,7 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot, hydrateRoot } from 'react-dom/client'
 import '@fontsource-variable/fraunces/opsz.css'
-import '@fontsource-variable/fraunces/opsz-italic.css'
 import '@fontsource-variable/geist'
 import '@fontsource-variable/geist-mono'
 import './styles/global.css'

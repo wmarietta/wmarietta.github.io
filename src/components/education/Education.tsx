@@ -6,14 +6,13 @@ export function Education() {
   return (
     <Section
       id="education"
-      eyebrow="Education"
       title={
         <>
-          Computer Science at <em>George Mason University.</em>
+          Computer Science at George Mason University.
         </>
       }
     >
-      <article className={`${styles.card} reveal`} aria-labelledby="degree-heading">
+      <article className={styles.card} aria-labelledby="degree-heading">
         <div className={styles.degree}>
           <p className={styles.school}>{education.school}</p>
           <h3 id="degree-heading" className={styles.title}>

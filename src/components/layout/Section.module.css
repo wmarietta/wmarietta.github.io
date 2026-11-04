@@ -30,28 +30,6 @@
   margin-bottom: clamp(2.5rem, 2rem + 2.5vw, 4.5rem);
 }
 
-.eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.index {
-  color: var(--brass);
-}
-
-.rule {
-  width: 2.5rem;
-  height: 1px;
-  background: var(--line-strong);
-}
-
 .titleRow {
   display: flex;
   flex-wrap: wrap;
@@ -64,14 +42,16 @@
   max-width: 21ch;
   font-family: var(--font-display);
   font-size: var(--text-3xl);
-  font-weight: 340;
+  font-weight: 380;
   font-variation-settings: 'opsz' 144;
   letter-spacing: -0.03em;
   line-height: 1.02;
 }
 
+/* Emphasis is carried by weight, not italics, and used once on the page. */
 .title em {
-  font-style: italic;
+  font-style: normal;
+  font-weight: 600;
   color: var(--brass-bright);
 }
 
@@ -80,7 +60,7 @@
 }
 
 .intro {
-  max-width: 60ch;
+  max-width: 54ch;
   margin-top: 1.5rem;
   font-size: var(--text-lg);
   color: var(--paper-dim);

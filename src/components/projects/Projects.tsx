@@ -11,10 +11,9 @@ export function Projects() {
     <Section
       id="work"
       tight
-      eyebrow="Selected work"
       title={
         <>
-          Projects, from the interface <em>down to the database.</em>
+          Projects, from the interface down to the database.
         </>
       }
     >
@@ -23,12 +22,12 @@ export function Projects() {
       {featuredProject && <FeaturedProject project={featuredProject} />}
 
       <div className={styles.grid}>
-        {cardProjects.map((project, i) => (
-          <ProjectCard key={project.slug} project={project} number={i + (featuredProject ? 2 : 1)} />
+        {cardProjects.map((project) => (
+          <ProjectCard key={project.slug} project={project} />
         ))}
       </div>
 
-      <div className={`${styles.more} reveal`}>
+      <div className={styles.more}>
         {otherProjects.length > 0 && (
           <div className={styles.also}>
             <h3 className={styles.alsoLabel}>Also built</h3>

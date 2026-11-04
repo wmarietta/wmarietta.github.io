@@ -1,7 +1,10 @@
+/* Supporting projects: open columns, no card boxes, so uneven copy lengths
+   never leave empty containers behind. */
 .grid {
   display: grid;
-  gap: clamp(1rem, 0.75rem + 1vw, 1.5rem);
-  margin-top: clamp(1rem, 0.75rem + 1vw, 1.5rem);
+  align-items: start;
+  gap: clamp(3.5rem, 2.5rem + 3vw, 5rem) clamp(2rem, 1rem + 3vw, 4rem);
+  margin-top: clamp(4rem, 3rem + 3vw, 6rem);
 }
 
 @media (min-width: 56em) {
@@ -10,20 +13,19 @@
   }
 }
 
-/* "Also built" + GitHub strip */
+/* "Also built" + GitHub, closing out the section */
 
 .more {
   display: grid;
-  gap: 1rem;
-  margin-top: clamp(1rem, 0.75rem + 1vw, 1.5rem);
+  gap: 1.5rem 3rem;
+  margin-top: clamp(4rem, 3rem + 3vw, 6rem);
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--line);
 }
 
 .also {
   display: grid;
-  gap: 0.75rem;
-  padding: 1.25rem clamp(1.25rem, 1rem + 1vw, 2rem);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
+  gap: 0.5rem;
 }
 
 .alsoLabel {
@@ -51,31 +53,24 @@
 }
 
 .github {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1.25rem clamp(1.25rem, 1rem + 1vw, 2rem);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  background: var(--ink-900);
-  transition:
-    border-color 0.3s var(--ease-out),
-    background-color 0.3s var(--ease-out);
-}
-
-.github:hover {
-  border-color: var(--line-brass);
-  background: var(--ink-850);
+  gap: 0.875rem;
+  justify-self: start;
+  min-height: 3rem;
 }
 
 .githubText {
   display: grid;
-  flex: 1;
   line-height: 1.35;
 }
 
 .githubLabel {
   font-weight: 550;
+  text-decoration: underline;
+  text-decoration-color: var(--line-strong);
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.25s var(--ease-out);
 }
 
 .githubUrl {
@@ -85,7 +80,13 @@
 }
 
 .githubArrow {
-  transition: transform 0.3s var(--ease-out);
+  transition:
+    transform 0.3s var(--ease-out),
+    color 0.3s var(--ease-out);
+}
+
+.github:hover .githubLabel {
+  text-decoration-color: var(--brass);
 }
 
 .github:hover .githubArrow {
@@ -95,6 +96,11 @@
 
 @media (min-width: 56em) {
   .more {
-    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+  }
+
+  .github {
+    justify-self: end;
   }
 }

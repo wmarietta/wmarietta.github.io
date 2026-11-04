@@ -23,20 +23,20 @@
 
 .index {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11px;
   fill: var(--faint);
 }
 
 .detail {
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: 11px;
   letter-spacing: 0.02em;
   fill: var(--muted);
 }
 
 .gapLabel {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 0.14em;
   fill: var(--faint);
 }
@@ -50,7 +50,7 @@
 
 .extDetail {
   font-family: var(--font-mono);
-  font-size: 8.5px;
+  font-size: 9.5px;
   letter-spacing: 0.16em;
   fill: var(--faint);
 }

@@ -9,19 +9,15 @@ import styles from './ProjectIndex.module.css'
  */
 export function ProjectIndex({ projects }: { projects: Project[] }) {
   return (
-    <div className={`${styles.index} reveal`}>
+    <div className={styles.index}>
       <div className={styles.head} aria-hidden="true">
-        <span>#</span>
         <span>Project · what it shows</span>
         <span>Core stack</span>
-        <span className={styles.headRight}>Verify</span>
+        <span className={styles.headRight}>Links</span>
       </div>
       <ol className={styles.rows} aria-label="Project index">
-        {projects.map((project, i) => (
+        {projects.map((project) => (
           <li key={project.slug} className={styles.row}>
-            <span className={styles.num} aria-hidden="true">
-              {String(i + 1).padStart(2, '0')}
-            </span>
             <div className={styles.main}>
               <a href={`#${project.slug}`} className={styles.title}>
                 {project.title}

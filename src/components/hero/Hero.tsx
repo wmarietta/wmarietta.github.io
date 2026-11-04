@@ -10,55 +10,50 @@ export function Hero() {
 
   return (
     <section id="top" className={styles.hero} aria-labelledby="hero-name">
-      <div className={styles.grid} aria-hidden="true" />
-
       <div className={`container ${styles.layout}`}>
         <div className={styles.copy}>
-          <p className={`${styles.status} ${styles.enter}`} style={{ '--d': '0ms' } as CSSProperties}>
-            <span className={styles.statusDot} aria-hidden="true" />
-            {profile.availability}
-          </p>
-
           <h1 id="hero-name" className={styles.name}>
             <span className={styles.line}>
               <span>{profile.firstName}</span>
             </span>{' '}
             <span className={styles.line}>
-              <span className={styles.italic}>{profile.lastName}</span>
+              <span>{profile.lastName}</span>
             </span>
           </h1>
 
-          <p className={`${styles.role} ${styles.enter}`} style={{ '--d': '420ms' } as CSSProperties}>
-            <span>{profile.title}</span>
-            <span className={styles.roleRule} aria-hidden="true" />
-            <span className={styles.roleFocus}>Full-stack &amp; Backend</span>
+          <p className={`${styles.headline} ${styles.enter}`} style={{ '--d': '280ms' } as CSSProperties}>
+            {profile.headline}
           </p>
 
-          <p className={`${styles.intro} ${styles.enter}`} style={{ '--d': '520ms' } as CSSProperties}>
+          <p className={`${styles.intro} ${styles.enter}`} style={{ '--d': '380ms' } as CSSProperties}>
             {profile.heroIntro}
           </p>
 
-          <div className={`${styles.actions} ${styles.enter}`} style={{ '--d': '620ms' } as CSSProperties}>
-            <ButtonLink href="#work" icon="arrow-down">
-              View selected work
-            </ButtonLink>
-            <ButtonLink href={profile.links.resume} variant="secondary" icon="file" external>
-              Résumé <span className={styles.pdf}>PDF</span>
-            </ButtonLink>
-            <ButtonLink href={profile.links.github} variant="ghost" icon="arrow-up-right" external>
-              <span className={styles.ghLabel}>
-                <Icon name="github" size={17} />
-                GitHub
-              </span>
-            </ButtonLink>
-            {profile.links.linkedin && (
-              <ButtonLink href={profile.links.linkedin} variant="ghost" icon="arrow-up-right" external>
-                <span className={styles.ghLabel}>
-                  <Icon name="linkedin" size={16} />
-                  LinkedIn
+          <div className={`${styles.actions} ${styles.enter}`} style={{ '--d': '480ms' } as CSSProperties}>
+            <div className={styles.buttons}>
+              <ButtonLink href="#work" icon="arrow-down">
+                View selected work
+              </ButtonLink>
+              <ButtonLink href={profile.links.resume} variant="secondary" icon="file" external>
+                Résumé <span className={styles.pdf}>PDF</span>
+              </ButtonLink>
+            </div>
+            <div className={styles.profiles}>
+              <ButtonLink href={profile.links.github} variant="ghost" icon="arrow-up-right" external>
+                <span className={styles.profileLabel}>
+                  <Icon name="github" size={17} />
+                  GitHub
                 </span>
               </ButtonLink>
-            )}
+              {profile.links.linkedin && (
+                <ButtonLink href={profile.links.linkedin} variant="ghost" icon="arrow-up-right" external>
+                  <span className={styles.profileLabel}>
+                    <Icon name="linkedin" size={16} />
+                    LinkedIn
+                  </span>
+                </ButtonLink>
+              )}
+            </div>
           </div>
         </div>
 
@@ -86,7 +81,7 @@ export function Hero() {
       </div>
 
       <div className="container">
-        <dl className={`${styles.facts} ${styles.enter}`} style={{ '--d': '760ms' } as CSSProperties}>
+        <dl className={`${styles.facts} ${styles.enter}`} style={{ '--d': '600ms' } as CSSProperties}>
           {profile.heroFacts.map((fact) => (
             <div key={fact.label} className={styles.fact}>
               <dt>{fact.label}</dt>

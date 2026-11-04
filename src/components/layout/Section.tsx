@@ -1,11 +1,9 @@
 import type { ReactNode } from 'react'
-import { navigation } from '../../content/navigation'
 import styles from './Section.module.css'
 
 interface SectionProps {
-  /** Must match an id in content/navigation.ts; its position sets the section number. */
+  /** Anchor id; must match an id in content/navigation.ts to appear in the header. */
   id: string
-  eyebrow: string
   title: ReactNode
   intro?: ReactNode
   aside?: ReactNode
@@ -15,24 +13,13 @@ interface SectionProps {
   children: ReactNode
 }
 
-/** Standard page section: numbered eyebrow, serif heading, optional intro. */
-export function Section({ id, eyebrow, title, intro, aside, tone = 'base', tight = false, children }: SectionProps) {
+/** Standard page section: serif heading that carries the section, optional intro. */
+export function Section({ id, title, intro, aside, tone = 'base', tight = false, children }: SectionProps) {
   const headingId = `${id}-heading`
-  const position = navigation.findIndex((item) => item.id === id)
-  const index = position >= 0 ? String(position + 1).padStart(2, '0') : null
   return (
     <section id={id} aria-labelledby={headingId} className={`${styles.section} ${styles[tone]} ${tight ? styles.tight : ''}`}>
       <div className="container">
-        <header className={`${styles.header} reveal`}>
-          <p className={styles.eyebrow}>
-            {index && (
-              <>
-                <span className={styles.index}>{index}</span>
-                <span className={styles.rule} aria-hidden="true" />
-              </>
-            )}
-            <span>{eyebrow}</span>
-          </p>
+        <header className={styles.header}>
           <div className={styles.titleRow}>
             <h2 id={headingId} className={styles.title}>
               {title}

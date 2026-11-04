@@ -8,10 +8,8 @@ import { Header } from './components/layout/Header'
 import { Projects } from './components/projects/Projects'
 import { Skills } from './components/skills/Skills'
 import { useHashScroll } from './hooks/useHashScroll'
-import { useReveal } from './hooks/useReveal'
 
 export function App() {
-  useReveal()
   useHashScroll()
 
   return (

@@ -1,37 +1,11 @@
 .hero {
   position: relative;
-  isolation: isolate;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: clamp(2.5rem, 1.5rem + 3vw, 4rem);
-  padding-top: calc(var(--header-height) + clamp(2rem, 1rem + 3vw, 3.5rem));
+  padding-top: calc(var(--header-height) + clamp(2.5rem, 1.5rem + 3.5vw, 4.5rem));
   padding-bottom: clamp(2rem, 1rem + 2vw, 3rem);
-  overflow: hidden;
-}
-
-/* Drafting grid, fading out from behind the figure */
-.grid {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background-image:
-    linear-gradient(var(--line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--line) 1px, transparent 1px);
-  background-size: 72px 72px;
-  background-position: -1px -1px;
-  mask-image: radial-gradient(ellipse 60% 70% at 72% 45%, #000 0%, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse 60% 70% at 72% 45%, #000 0%, transparent 75%);
-  opacity: 0.55;
-}
-
-.hero::after {
-  content: '';
-  position: absolute;
-  inset: auto 0 0;
-  height: 40%;
-  z-index: -1;
-  background: linear-gradient(to bottom, transparent, var(--ink-950));
 }
 
 .layout {
@@ -42,87 +16,41 @@
 
 /* Copy ------------------------------------------------------------------- */
 
-.status {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.625rem;
-  margin-bottom: clamp(1.5rem, 1rem + 1.5vw, 2.25rem);
-  padding: 0.375rem 0.875rem 0.375rem 0.75rem;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: rgba(236, 230, 218, 0.03);
-  font-size: 0.8125rem;
-  color: var(--paper-dim);
-}
-
-.statusDot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--sage);
-  box-shadow: 0 0 0 3px rgba(147, 183, 156, 0.15);
-}
-
 .name {
   font-family: var(--font-display);
-  font-size: clamp(3.5rem, 1.6rem + 8.4vw, 8.25rem);
-  font-weight: 330;
+  font-size: clamp(3rem, 1.5rem + 5.4vw, 5.75rem);
+  font-weight: 360;
   font-variation-settings: 'opsz' 144;
-  letter-spacing: -0.045em;
-  line-height: 0.92;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
 }
 
+/* Each word rises from behind its own mask on first load. */
 .line {
-  display: block;
+  display: inline-block;
   overflow: hidden;
-  padding-bottom: 0.06em;
-  margin-bottom: -0.06em;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+  vertical-align: top;
 }
 
 .line > span {
   display: inline-block;
 }
 
-.italic {
-  font-style: italic;
-  font-weight: 300;
-  letter-spacing: -0.035em;
-  padding-right: 0.08em;
-}
-
-.role {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem 0.875rem;
-  margin-top: clamp(1.5rem, 1rem + 1.5vw, 2rem);
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+.headline {
+  max-width: 18ch;
+  margin-top: clamp(1rem, 0.75rem + 1vw, 1.5rem);
+  font-size: clamp(1.625rem, 1.1rem + 1.9vw, 2.625rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
   color: var(--paper);
-}
-
-.roleRule {
-  display: none;
-  width: 2rem;
-  height: 1px;
-  background: var(--brass);
-}
-
-@media (min-width: 40em) {
-  .roleRule {
-    display: block;
-  }
-}
-
-.roleFocus {
-  color: var(--brass-bright);
 }
 
 .intro {
   max-width: 34rem;
-  margin-top: 1.25rem;
+  margin-top: clamp(1rem, 0.75rem + 0.75vw, 1.375rem);
   font-size: var(--text-lg);
   line-height: 1.6;
   color: var(--paper-dim);
@@ -132,8 +60,30 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.75rem 1.25rem;
   margin-top: clamp(2rem, 1.5rem + 1.5vw, 2.75rem);
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.profiles {
+  display: flex;
+  gap: 0.25rem;
+  margin-left: -0.5rem;
+}
+
+/* On phones the two buttons can't share a row, so stack them full width:
+   primary, secondary, then the profile links as a third tier. */
+@media (max-width: 30em) {
+  .actions,
+  .buttons {
+    display: grid;
+    width: 100%;
+  }
 }
 
 .pdf {
@@ -144,7 +94,7 @@
   color: var(--muted);
 }
 
-.ghLabel {
+.profileLabel {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -163,10 +113,10 @@
   padding: clamp(1.25rem, 0.75rem + 2vw, 2rem);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  background: linear-gradient(160deg, rgba(24, 30, 40, 0.75), rgba(15, 19, 26, 0.6));
-  backdrop-filter: blur(4px);
+  background: linear-gradient(160deg, var(--ink-800), var(--ink-900));
 }
 
+/* Registration marks, as on a drawing sheet */
 .corner {
   position: absolute;
   width: 10px;
@@ -256,6 +206,7 @@
 }
 
 .fact dt {
+  flex: none;
   font-family: var(--font-mono);
   font-size: 0.75rem;
   letter-spacing: 0.12em;
@@ -273,6 +224,7 @@
 .factLink {
   display: inline-flex;
   align-items: center;
+  min-height: 1.5rem;
   gap: 0.35rem;
   color: var(--brass-bright);
   text-decoration: underline;
@@ -284,7 +236,7 @@
   text-decoration-color: var(--brass);
 }
 
-/* Entrance --------------------------------------------------------------- */
+/* Entrance: the page's one authored motion moment ------------------------ */
 
 @media (prefers-reduced-motion: no-preference) {
   :global(.js) .line > span {
@@ -292,7 +244,7 @@
   }
 
   :global(.js) .line:nth-child(2) > span {
-    animation-delay: 0.12s;
+    animation-delay: 0.1s;
   }
 
   :global(.js) .enter {
@@ -352,17 +304,6 @@
   }
 }
 
-@media (min-width: 64em) {
-  .layout {
-    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
-    gap: clamp(3rem, 5vw, 6rem);
-  }
-
-  .figure {
-    justify-self: end;
-  }
-}
-
 @media (min-width: 40em) and (max-width: 63.99em) {
   .fact:nth-child(3) {
     border-left: 0;
@@ -375,6 +316,15 @@
 }
 
 @media (min-width: 64em) {
+  .layout {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: clamp(3rem, 5vw, 6rem);
+  }
+
+  .figure {
+    justify-self: end;
+  }
+
   .facts {
     grid-template-columns: repeat(4, 1fr);
   }

@@ -37,7 +37,7 @@ export function CaseStudy({ id, open, study }: CaseStudyProps) {
             <p className={styles.overview}>{study.overview}</p>
           </div>
 
-          <Block letter="A" title="Architecture" intro={study.architecture.intro}>
+          <Block title="Architecture" intro={study.architecture.intro}>
             <ol className={styles.pipeline}>
               {study.architecture.layers.map((layer, i) => (
                 <li key={layer.name} className={styles.layer}>
@@ -52,7 +52,7 @@ export function CaseStudy({ id, open, study }: CaseStudyProps) {
             </ol>
           </Block>
 
-          <Block letter="B" title="Authentication" intro={study.auth.intro}>
+          <Block title="Authentication" intro={study.auth.intro}>
             <ol className={styles.steps}>
               {study.auth.steps.map((step, i) => (
                 <li key={step.title} className={styles.step}>
@@ -66,7 +66,7 @@ export function CaseStudy({ id, open, study }: CaseStudyProps) {
             </ol>
           </Block>
 
-          <Block letter="C" title="Data model" intro={study.data.intro}>
+          <Block title="Data model" intro={study.data.intro}>
             <ul className={styles.entities}>
               {study.data.entities.map((entity) => (
                 <li key={entity.name} className={styles.entity} data-status={entity.status}>
@@ -82,7 +82,7 @@ export function CaseStudy({ id, open, study }: CaseStudyProps) {
             </ul>
           </Block>
 
-          <Block letter="D" title="Where it stands">
+          <Block title="Where it stands">
             <div className={styles.progress}>
               <div>
                 <p className={styles.progressLabel}>Built</p>
@@ -115,24 +115,17 @@ export function CaseStudy({ id, open, study }: CaseStudyProps) {
 }
 
 function Block({
-  letter,
   title,
   intro,
   children,
 }: {
-  letter: string
   title: string
   intro?: string
   children: ReactNode
 }) {
   return (
     <section className={styles.block}>
-      <header className={styles.blockHead}>
-        <span className={styles.blockLetter} aria-hidden="true">
-          {letter}
-        </span>
-        <h4 className={styles.blockTitle}>{title}</h4>
-      </header>
+      <h4 className={styles.blockTitle}>{title}</h4>
       {intro && <p className={styles.blockIntro}>{intro}</p>}
       {children}
     </section>

@@ -33,9 +33,9 @@ export function Contact() {
   }
 
   return (
-    <Section id="contact" eyebrow="Contact" tone="raised" title={emphasize(profile.contact.heading)}>
+    <Section id="contact" tone="raised" title={emphasize(profile.contact.heading)}>
       <div className={styles.layout}>
-        <div className={`${styles.primary} reveal`}>
+        <div className={styles.primary}>
           <p className={styles.body}>{profile.contact.body}</p>
 
           <div className={styles.emailBlock}>
@@ -53,7 +53,7 @@ export function Contact() {
           </div>
         </div>
 
-        <ul className={`${styles.links} reveal`}>
+        <ul className={styles.links}>
           {links.map((link) => (
             <li key={link.label}>
               <a href={link.href} className={styles.linkCard} target="_blank" rel="noopener noreferrer">

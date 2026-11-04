@@ -72,6 +72,8 @@
 }
 
 .file {
+  display: inline-block;
+  padding-block: 0.25rem; /* keeps the tap target at 24px+ */
   font-family: var(--font-mono);
   color: var(--paper-dim);
   text-decoration: underline;

@@ -31,14 +31,11 @@
   color: var(--paper-dim);
 }
 
-.flagIndex {
-  color: var(--brass);
-}
-
 /* Main ------------------------------------------------------------------- */
 
 .main {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .content {
@@ -46,12 +43,9 @@
 }
 
 .category {
-  margin-bottom: 1rem;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--brass);
+  margin-top: 0.75rem;
+  font-size: var(--text-lg);
+  color: var(--brass-bright);
 }
 
 .title {
@@ -166,7 +160,6 @@
 
 .visualPane {
   position: relative;
-  min-height: 18rem;
   aspect-ratio: 4 / 3;
   border-top: 1px solid var(--line);
 }

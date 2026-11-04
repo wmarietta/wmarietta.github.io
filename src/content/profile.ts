@@ -7,7 +7,7 @@ export const profile: Profile = {
   title: 'Software Developer',
   location: 'Northern Virginia',
   email: 'wemarietta@gmail.com',
-  availability: 'Available for junior software engineering roles',
+  headline: 'Full-stack & backend developer.',
   heroIntro:
     'I build full-stack web applications with React, TypeScript, Node.js, Express, and MySQL. My strongest work is on the backend: designing REST APIs, layering application logic, and modeling relational data.',
   links: {
@@ -16,8 +16,8 @@ export const profile: Profile = {
     linkedin: 'https://www.linkedin.com/in/wemarietta/',
   },
   heroFacts: [
+    { label: 'Available for', value: 'Junior software engineering roles' },
     { label: 'Featured project', value: 'Duelist Kingdom', href: '#duelist-kingdom' },
-    { label: 'Focus', value: 'Full-stack · Backend' },
     { label: 'Education', value: 'B.S. CS, George Mason ’26 · 3.67 GPA' },
     { label: 'Based in', value: 'Northern Virginia' },
   ],
@@ -51,7 +51,7 @@ export const profile: Profile = {
     ],
   },
   contact: {
-    heading: 'Ready to join *your engineering team.*',
+    heading: 'Ready to join your engineering team.',
     body: 'I’m pursuing full-stack, backend, and general software engineering roles where I can take ownership of features across the stack. If you’re hiring, or want to talk through a project, email is the best way to reach me.',
   },
 }

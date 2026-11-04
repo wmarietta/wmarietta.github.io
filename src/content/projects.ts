@@ -141,7 +141,7 @@ export const projects: Project[] = [
   {
     slug: 'android-fighting-game',
     title: 'Battleframe',
-    category: 'Native Android Turn-Based Fighting Game',
+    category: 'Native Android turn-based fighting game',
     status: 'completed',
     takeaway: 'Custom rendering, OOP architecture, Android',
     summary:

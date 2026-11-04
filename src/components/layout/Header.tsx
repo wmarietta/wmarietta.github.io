@@ -79,16 +79,13 @@ export function Header() {
 
         <nav aria-label="Primary" className={styles.nav}>
           <ul className={styles.navList}>
-            {navigation.map((item, i) => (
+            {navigation.map((item) => (
               <li key={item.id}>
                 <a
                   href={`#${item.id}`}
                   className={styles.navLink}
                   aria-current={active === item.id ? 'true' : undefined}
                 >
-                  <span className={styles.navIndex} aria-hidden="true">
-                    0{i + 1}
-                  </span>
                   {item.label}
                 </a>
               </li>
@@ -135,9 +132,6 @@ export function Header() {
             {navigation.map((item, i) => (
               <li key={item.id} style={{ '--i': i } as CSSProperties}>
                 <a href={`#${item.id}`} className={styles.panelLink} onClick={() => close(false)}>
-                  <span className={styles.panelIndex} aria-hidden="true">
-                    0{i + 1}
-                  </span>
                   {item.label}
                 </a>
               </li>

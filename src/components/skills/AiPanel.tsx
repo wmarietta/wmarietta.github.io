@@ -5,7 +5,7 @@ import styles from './AiPanel.module.css'
 export function AiPanel() {
   const { summary, tools } = aiExperience
   return (
-    <aside className={`${styles.panel} reveal`} aria-labelledby="ai-panel-heading">
+    <aside className={styles.panel} aria-labelledby="ai-panel-heading">
       <div className={styles.intro}>
         <h3 id="ai-panel-heading" className={styles.label}>
           AI-assisted development

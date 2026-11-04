@@ -1,4 +1,3 @@
-import type { CSSProperties } from 'react'
 import { coreSkills, projectsUsing, skillGroups, skillsIntro } from '../../content'
 import { Section } from '../layout/Section'
 import { AiPanel } from './AiPanel'
@@ -8,25 +7,20 @@ export function Skills() {
   return (
     <Section
       id="skills"
-      eyebrow="Technical skills"
       tone="raised"
       title={
         <>
-          The tools I reach for, <em>and where I’ve used them.</em>
+          The tools I reach for, and where I’ve used them.
         </>
       }
       intro={skillsIntro}
     >
-      <h3 className={`${styles.label} reveal`}>Core stack</h3>
+      <h3 className={styles.label}>Core stack</h3>
       <ul className={styles.core}>
-        {coreSkills.map((skill, i) => {
+        {coreSkills.map((skill) => {
           const usedIn = projectsUsing(skill.name)
           return (
-            <li
-              key={skill.name}
-              className={`${styles.coreItem} reveal`}
-              style={{ '--reveal-delay': `${(i % 3) * 70}ms` } as CSSProperties}
-            >
+            <li key={skill.name} className={styles.coreItem}>
               <p className={styles.coreName}>{skill.name}</p>
               <p className={styles.coreNote}>{skill.note}</p>
               {usedIn.length > 0 && (
@@ -47,8 +41,8 @@ export function Skills() {
         })}
       </ul>
 
-      <h3 className={`${styles.label} ${styles.labelSpaced} reveal`}>Full inventory</h3>
-      <dl className={`${styles.table} reveal`}>
+      <h3 className={`${styles.label} ${styles.labelSpaced}`}>Full inventory</h3>
+      <dl className={styles.table}>
         {skillGroups.map((group) => (
           <div key={group.name} className={styles.row}>
             <dt className={styles.group}>{group.name}</dt>

@@ -23,7 +23,6 @@
   border: 1px solid var(--line-brass);
   border-radius: 6px;
   background: linear-gradient(90deg, var(--brass-wash), rgba(214, 162, 78, 0.04));
-  transform-origin: left;
 }
 
 .bar:nth-child(2) {
@@ -41,18 +40,6 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   color: var(--paper);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  :global(.js) .timeline .bar {
-    transform: scaleX(0);
-    transition: transform 1.2s var(--ease-out);
-    transition-delay: calc(0.25s + var(--i) * 0.15s);
-  }
-
-  :global(.js) .timeline:global(.is-visible) .bar {
-    transform: none;
-  }
 }
 
 .ruler {
@@ -114,8 +101,8 @@
 
 .role {
   font-family: var(--font-display);
-  font-size: var(--text-2xl);
-  font-weight: 360;
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  font-weight: 380;
   letter-spacing: -0.025em;
 }
 

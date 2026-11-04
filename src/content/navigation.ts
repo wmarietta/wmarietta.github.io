@@ -1,8 +1,4 @@
-/**
- * Sections shown in the header navigation, in page order. Each section's
- * number ("01", "02", …) comes from its position here, so the header and the
- * section headings always match.
- */
+/** Sections shown in the header navigation, in page order. */
 export const navigation = [
   { id: 'work', label: 'Work' },
   { id: 'about', label: 'About' },
